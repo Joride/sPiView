@@ -1,0 +1,14 @@
+//
+//  sPiView-Prefix.pch
+//  sPiView
+//
+//  Created by Joride on 16-11-15.
+//  Copyright © 2015 KerrelInc. All rights reserved.
+//
+
+#if DEBUG
+    #define DebugLog(format, ...) NSLog(@"%@", [NSString stringWithFormat:format, ## __VA_ARGS__])
+#else
+    #define DebugLog(format, ...)
+#endif
+
