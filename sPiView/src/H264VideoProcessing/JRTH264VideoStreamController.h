@@ -40,4 +40,24 @@
  */
 - (void) stopStream;
 
+/*!
+ @method - (instancetype) initWithIPAddress: (NSString *) IPAddress
+ This is the designated initializer of this class
+ @param IPAddress
+ An IP address to connect to.
+ @return JRTVideoStreamController
+ A fully initialized JRTVideoStreamController;
+ */
+- (instancetype) initWithIPAddress: (NSString *) IPAddress
+NS_DESIGNATED_INITIALIZER;
+
+/*!
+ @property NSString * IPAddress
+ This property returns a copy of the IP address that the receiver was 
+ initialized with.
+ */
+@property (nonatomic, copy, readonly) NSString * IPAddress;
+
+-(instancetype)init NS_UNAVAILABLE;
+
 @end

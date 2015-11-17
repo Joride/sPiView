@@ -26,6 +26,19 @@
 		A2A08BB81BFB875C00EBDFDA /* launchImage-retina4-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BB71BFB875C00EBDFDA /* launchImage-retina4-landscape@2x.png */; };
 		A2A08BBA1BFB87FD00EBDFDA /* launchImage-667h-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BB91BFB87FD00EBDFDA /* launchImage-667h-landscape@2x.png */; };
 		A2A08BBC1BFB889A00EBDFDA /* launchImage-736h-landscape@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BBB1BFB889A00EBDFDA /* launchImage-736h-landscape@3x.png */; };
+		A2A08BC01BFB925600EBDFDA /* IP-addresses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BBE1BFB925600EBDFDA /* IP-addresses.xcdatamodeld */; };
+		A2A08BC51BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BC21BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m */; };
+		A2A08BC61BFB92C900EBDFDA /* JRTIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BC41BFB92C900EBDFDA /* JRTIPAddress.m */; };
+		A2A08BC91BFB964500EBDFDA /* JRTIPAddressesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BC81BFB964500EBDFDA /* JRTIPAddressesController.m */; };
+		A2A08BCD1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BCC1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m */; };
+		A2A08BD01BFBB39500EBDFDA /* JRTIPAddressesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BCF1BFBB39500EBDFDA /* JRTIPAddressesViewController.m */; };
+		A2A08BD31BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */; };
+		A2A08BD61BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BD51BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m */; };
+		A2A08BD91BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */; };
+		A2A08BDE1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BDD1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m */; };
+		A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */; };
+		A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */; };
+		A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */; };
 		A2D4450E1A18AF16008F9060 /* sPiViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4450D1A18AF16008F9060 /* sPiViewTests.m */; };
 		A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4451B1A18B0DF008F9060 /* AppDelegate.m */; };
 		A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445261A18B0DF008F9060 /* JRTSocket.m */; };
@@ -71,6 +84,29 @@
 		A2A08BB71BFB875C00EBDFDA /* launchImage-retina4-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-retina4-landscape@2x.png"; path = "launchimages/launchImage-retina4-landscape@2x.png"; sourceTree = "<group>"; };
 		A2A08BB91BFB87FD00EBDFDA /* launchImage-667h-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-667h-landscape@2x.png"; path = "launchimages/launchImage-667h-landscape@2x.png"; sourceTree = "<group>"; };
 		A2A08BBB1BFB889A00EBDFDA /* launchImage-736h-landscape@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-736h-landscape@3x.png"; path = "launchimages/launchImage-736h-landscape@3x.png"; sourceTree = "<group>"; };
+		A2A08BBF1BFB925600EBDFDA /* IP-addresses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "IP-addresses.xcdatamodel"; sourceTree = "<group>"; };
+		A2A08BC11BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JRTIPAddress+CoreDataProperties.h"; path = "IP-addresses/JRTIPAddress+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A2A08BC21BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JRTIPAddress+CoreDataProperties.m"; path = "IP-addresses/JRTIPAddress+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A2A08BC31BFB92C900EBDFDA /* JRTIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddress.h; path = "IP-addresses/JRTIPAddress.h"; sourceTree = "<group>"; };
+		A2A08BC41BFB92C900EBDFDA /* JRTIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddress.m; path = "IP-addresses/JRTIPAddress.m"; sourceTree = "<group>"; };
+		A2A08BC71BFB964500EBDFDA /* JRTIPAddressesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressesController.h; path = "IP-addresses/JRTIPAddressesController.h"; sourceTree = "<group>"; };
+		A2A08BC81BFB964500EBDFDA /* JRTIPAddressesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressesController.m; path = "IP-addresses/JRTIPAddressesController.m"; sourceTree = "<group>"; };
+		A2A08BCB1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+ApplicationDirectories.h"; sourceTree = "<group>"; };
+		A2A08BCC1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+ApplicationDirectories.m"; sourceTree = "<group>"; };
+		A2A08BCE1BFBB39500EBDFDA /* JRTIPAddressesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTIPAddressesViewController.h; sourceTree = "<group>"; };
+		A2A08BCF1BFBB39500EBDFDA /* JRTIPAddressesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTIPAddressesViewController.m; sourceTree = "<group>"; };
+		A2A08BD11BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTEditIPAddressViewController.h; sourceTree = "<group>"; };
+		A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTEditIPAddressViewController.m; sourceTree = "<group>"; };
+		A2A08BD41BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Persisting.h"; sourceTree = "<group>"; };
+		A2A08BD51BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Persisting.m"; sourceTree = "<group>"; };
+		A2A08BD71BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTIPAddressesCollectionViewDataSource.h; sourceTree = "<group>"; };
+		A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTIPAddressesCollectionViewDataSource.m; sourceTree = "<group>"; };
+		A2A08BDC1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressCollectionViewCell.h; path = Views/cells/JRTIPAddressCollectionViewCell.h; sourceTree = "<group>"; };
+		A2A08BDD1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressCollectionViewCell.m; path = Views/cells/JRTIPAddressCollectionViewCell.m; sourceTree = "<group>"; };
+		A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressCollectionViewCell.xib; path = Views/cells/JRTIPAddressCollectionViewCell.xib; sourceTree = "<group>"; };
+		A2A08BE31BFDCB2200EBDFDA /* JRTIPAddressHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressHeaderView.h; path = Views/cells/JRTIPAddressHeaderView.h; sourceTree = "<group>"; };
+		A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressHeaderView.m; path = Views/cells/JRTIPAddressHeaderView.m; sourceTree = "<group>"; };
+		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D445071A18AF16008F9060 /* sPiViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sPiViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4450C1A18AF16008F9060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +192,41 @@
 			path = H264VideoProcessing;
 			sourceTree = "<group>";
 		};
+		A2A08BBD1BFB922A00EBDFDA /* IP-addresses */ = {
+			isa = PBXGroup;
+			children = (
+				A2A08BBE1BFB925600EBDFDA /* IP-addresses.xcdatamodeld */,
+				A2A08BC31BFB92C900EBDFDA /* JRTIPAddress.h */,
+				A2A08BC41BFB92C900EBDFDA /* JRTIPAddress.m */,
+				A2A08BC11BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.h */,
+				A2A08BC21BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m */,
+				A2A08BC71BFB964500EBDFDA /* JRTIPAddressesController.h */,
+				A2A08BC81BFB964500EBDFDA /* JRTIPAddressesController.m */,
+			);
+			name = "IP-addresses";
+			sourceTree = "<group>";
+		};
+		A2A08BDA1BFCF2AF00EBDFDA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				A2A08BDB1BFCF2B700EBDFDA /* cells */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		A2A08BDB1BFCF2B700EBDFDA /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				A2A08BDC1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.h */,
+				A2A08BDD1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m */,
+				A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */,
+				A2A08BE31BFDCB2200EBDFDA /* JRTIPAddressHeaderView.h */,
+				A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */,
+				A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		A2D444E51A18AF16008F9060 = {
 			isa = PBXGroup;
 			children = (
@@ -205,11 +276,17 @@
 		A2D445191A18B0DF008F9060 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A2A08BDA1BFCF2AF00EBDFDA /* views */,
+				A2A08BBD1BFB922A00EBDFDA /* IP-addresses */,
 				A2D445361A18B127008F9060 /* Main.storyboard */,
 				A2D4451A1A18B0DF008F9060 /* AppDelegate.h */,
 				A2D4451B1A18B0DF008F9060 /* AppDelegate.m */,
 				A2A08BA21BFB2B0000EBDFDA /* UIImage+LaunchImage.h */,
 				A2A08BA31BFB2B0000EBDFDA /* UIImage+LaunchImage.m */,
+				A2A08BCB1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.h */,
+				A2A08BCC1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m */,
+				A2A08BD41BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.h */,
+				A2A08BD51BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m */,
 				A2733A211BF9E22100641F0E /* H264VideoProcessing */,
 				A2D445241A18B0DF008F9060 /* Networking */,
 				A2D445271A18B0DF008F9060 /* ViewControllers */,
@@ -231,6 +308,12 @@
 			children = (
 				A2D445281A18B0DF008F9060 /* JRTVideoViewController.h */,
 				A2D445291A18B0DF008F9060 /* JRTVideoViewController.m */,
+				A2A08BCE1BFBB39500EBDFDA /* JRTIPAddressesViewController.h */,
+				A2A08BCF1BFBB39500EBDFDA /* JRTIPAddressesViewController.m */,
+				A2A08BD71BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.h */,
+				A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */,
+				A2A08BD11BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.h */,
+				A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +371,7 @@
 		A2D444E61A18AF16008F9060 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JRT;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = KerrelInc;
 				TargetAttributes = {
@@ -326,11 +410,13 @@
 			files = (
 				A2A08BAC1BFB2F7A00EBDFDA /* launchImage-736h@3x.png in Resources */,
 				A2D445391A18B127008F9060 /* Main.storyboard in Resources */,
+				A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */,
 				A2A08BB81BFB875C00EBDFDA /* launchImage-retina4-landscape@2x.png in Resources */,
 				A21DE3851A2B39330069BE45 /* iTunesArtwork in Resources */,
 				A2A08BB41BFB2FB900EBDFDA /* launchImage-ipad-portrait@2x.png in Resources */,
 				A2A08BAB1BFB2F7A00EBDFDA /* launchImage-667h@2x.png in Resources */,
 				A2A08BBA1BFB87FD00EBDFDA /* launchImage-667h-landscape@2x.png in Resources */,
+				A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */,
 				A2A08B9E1BFB2ADA00EBDFDA /* launchImage-retina4@2x.png in Resources */,
 				A2D445331A18B10F008F9060 /* icons-launchimages.xcassets in Resources */,
 				A2A08BB21BFB2FB900EBDFDA /* launchImage-ipad-landscape@2x.png in Resources */,
@@ -356,14 +442,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A08BC61BFB92C900EBDFDA /* JRTIPAddress.m in Sources */,
+				A2A08BD01BFBB39500EBDFDA /* JRTIPAddressesViewController.m in Sources */,
+				A2A08BC51BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m in Sources */,
+				A2A08BD61BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m in Sources */,
 				A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */,
+				A2A08BC01BFB925600EBDFDA /* IP-addresses.xcdatamodeld in Sources */,
+				A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */,
 				A2D445301A18B0DF008F9060 /* JRTVideoViewController.m in Sources */,
+				A2A08BCD1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m in Sources */,
 				A2A08BA41BFB2B0000EBDFDA /* UIImage+LaunchImage.m in Sources */,
 				A2733A291BF9E22100641F0E /* JRTH264VideoStreamController.m in Sources */,
 				A2733A2A1BF9E22100641F0E /* NSData+NALUnit.m in Sources */,
 				A2186FCD1BF9E56C000AF257 /* JRTDebug.m in Sources */,
 				A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */,
+				A2A08BC91BFB964500EBDFDA /* JRTIPAddressesController.m in Sources */,
+				A2A08BDE1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m in Sources */,
 				A2186FCE1BF9E56C000AF257 /* main.m in Sources */,
+				A2A08BD31BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m in Sources */,
+				A2A08BD91BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m in Sources */,
 				A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +687,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A2A08BBE1BFB925600EBDFDA /* IP-addresses.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A2A08BBF1BFB925600EBDFDA /* IP-addresses.xcdatamodel */,
+			);
+			currentVersion = A2A08BBF1BFB925600EBDFDA /* IP-addresses.xcdatamodel */;
+			name = "IP-addresses.xcdatamodeld";
+			path = "IP-addresses/IP-addresses.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A2D444E61A18AF16008F9060 /* Project object */;
 }

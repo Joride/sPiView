@@ -18,18 +18,21 @@ const char * kJRTVideoStreamControllerQueue = "com.kerrelinc.JRTVideoStreamContr
 @property (nonatomic, readonly) JRTH264VideoStreamProcessor * videoStreamProcessor;
 @property (nonatomic, readonly) dispatch_queue_t queue;
 @property (nonatomic, strong) AVSampleBufferDisplayLayer * sampleBufferDisplayLayer;
+@property (nonatomic, copy) NSString * IPAddress;
 @end
 
 @implementation JRTH264VideoStreamController
 
 #pragma mark - Public
--(instancetype)init
+- (instancetype) initWithIPAddress: (NSString *) IPAddress
 {
+    NSParameterAssert(IPAddress);
     self = [super init];
     if (self)
     {
         _queue = dispatch_queue_create(kJRTVideoStreamControllerQueue,
                                        DISPATCH_QUEUE_SERIAL);
+        _IPAddress = [IPAddress copy];
     }
     return self;
 }
@@ -122,8 +125,13 @@ didReceiveDataInStream:(NSInputStream *)inputStream
 {
     if (nil == _socket)
     {
-        _socket = [[JRTSocket alloc] initWithHost: @"192.168.2.14"
-                                       portNumber: @(82)
+        NSNumber * port = @(82);
+        NSAssert(nil != self.IPAddress, @"Expecting an IP address here");
+        DebugLog(@"Initializing a socket on IP %@ at port %@",
+                 self.IPAddress,
+                 port);
+        _socket = [[JRTSocket alloc] initWithHost: self.IPAddress
+                                       portNumber: port
                                          receiver: self
                                     callbackQueue: self.queue];
     }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="JRTIPAddress" representedClassName="JRTIPAddress" syncable="YES">
+        <attribute name="ipAddress" attributeType="String" syncable="YES"/>
+        <attribute name="isSelected" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="modificationDate" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="JRTIPAddress" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>
