@@ -205,6 +205,7 @@
 		A2D445191A18B0DF008F9060 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A2D445361A18B127008F9060 /* Main.storyboard */,
 				A2D4451A1A18B0DF008F9060 /* AppDelegate.h */,
 				A2D4451B1A18B0DF008F9060 /* AppDelegate.m */,
 				A2A08BA21BFB2B0000EBDFDA /* UIImage+LaunchImage.h */,
@@ -238,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				A21DE3861A2B7C2F0069BE45 /* Images */,
-				A2D445361A18B127008F9060 /* Main.storyboard */,
 				A2D445321A18B10F008F9060 /* icons-launchimages.xcassets */,
 			);
 			path = resources;
@@ -393,6 +393,7 @@
 				A2D445371A18B127008F9060 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../resources;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

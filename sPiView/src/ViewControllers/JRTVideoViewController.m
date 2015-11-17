@@ -22,13 +22,21 @@
 -(UIImageView *)imageView
 {
     NSAssert([self.view isKindOfClass: [UIImageView class]],
-             @"Expecint self.view to be of type UIImaView");
+             @"Expecting self.view to be of type UIImaView");
     return (UIImageView *)self.view;
 }
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Video", nil);
     self.imageView.image = [UIImage launchImage];
+
+    UIBarButtonItem * toggleVideo;
+    toggleVideo = [[UIBarButtonItem alloc] initWithTitle: @"Toggle Video"
+                                                   style: UIBarButtonItemStylePlain
+                                                  target: self
+                                                  action: @selector(toggleCamera:)];
+    self.navigationItem.leftBarButtonItem = toggleVideo;
 }
 
 @synthesize videoStreamController = _videoStreamController;
