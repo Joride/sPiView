@@ -207,11 +207,11 @@
 			children = (
 				A2D4451A1A18B0DF008F9060 /* AppDelegate.h */,
 				A2D4451B1A18B0DF008F9060 /* AppDelegate.m */,
+				A2A08BA21BFB2B0000EBDFDA /* UIImage+LaunchImage.h */,
+				A2A08BA31BFB2B0000EBDFDA /* UIImage+LaunchImage.m */,
 				A2733A211BF9E22100641F0E /* H264VideoProcessing */,
 				A2D445241A18B0DF008F9060 /* Networking */,
 				A2D445271A18B0DF008F9060 /* ViewControllers */,
-				A2A08BA21BFB2B0000EBDFDA /* UIImage+LaunchImage.h */,
-				A2A08BA31BFB2B0000EBDFDA /* UIImage+LaunchImage.m */,
 			);
 			path = src;
 			sourceTree = "<group>";

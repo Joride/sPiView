@@ -12,58 +12,63 @@
 
 @interface JRTVideoViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (readonly) UIImageView * imageView;
+@property (nonatomic, getter=isPlaying) BOOL playing;
+@property (readonly) JRTH264VideoStreamController * videoStreamController;
 @end
 
 @implementation JRTVideoViewController
+
+-(UIImageView *)imageView
 {
-    JRTH264VideoStreamController * _videoStreamController;
-    BOOL _isPlaying;
+    NSAssert([self.view isKindOfClass: [UIImageView class]],
+             @"Expecint self.view to be of type UIImaView");
+    return (UIImageView *)self.view;
 }
-
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    ((UIImageView *)self.view).image = [UIImage launchImage];
+    self.imageView.image = [UIImage launchImage];
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear: animated];
-    _videoStreamController = [[JRTH264VideoStreamController alloc] init];
-    _videoStreamController.sampleBufferDisplayLayer.backgroundColor = [UIColor clearColor].CGColor;
 
+@synthesize videoStreamController = _videoStreamController;
+-(JRTH264VideoStreamController *)videoStreamController
+{
+    if (nil == _videoStreamController)
+    {
+        _videoStreamController = [[JRTH264VideoStreamController alloc] init];
+        _videoStreamController.sampleBufferDisplayLayer.backgroundColor = [UIColor clearColor].CGColor;
+    }
+    return _videoStreamController;
 }
 - (IBAction)toggleCamera:(id)sender
 {
-    if (!_isPlaying)
+    if (!self.isPlaying)
     {
-        _isPlaying = YES;
-        [self.view.layer insertSublayer: _videoStreamController.sampleBufferDisplayLayer
+        self.playing = YES;
+        [self.view.layer insertSublayer: self.videoStreamController.sampleBufferDisplayLayer
                                 atIndex: 0];
-        _videoStreamController.sampleBufferDisplayLayer.frame = self.view.bounds;
-        [_videoStreamController startStream];
+        self.videoStreamController.sampleBufferDisplayLayer.frame = self.view.bounds;
+        [self.videoStreamController startStream];
         
     }
     else
     {
-        _isPlaying = NO;
-        [_videoStreamController stopStream];
-        [_videoStreamController.sampleBufferDisplayLayer removeFromSuperlayer];
-
+        self.playing = NO;
+        [self.videoStreamController stopStream];
+        [self.videoStreamController.sampleBufferDisplayLayer removeFromSuperlayer];
     }
 }
 -(void)viewWillTransitionToSize:(CGSize)size
       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        CGRect videoFrame = self->_videoStreamController.sampleBufferDisplayLayer.frame;
+        CGRect videoFrame = self.videoStreamController.sampleBufferDisplayLayer.frame;
         videoFrame.size = size;
-        self->_videoStreamController.sampleBufferDisplayLayer.frame = videoFrame;
+        self.videoStreamController.sampleBufferDisplayLayer.frame = videoFrame;
 
         UIImage * image = [UIImage launchImage];
-        ((UIImageView *)self.view).image = image;
+        self.imageView.image = image;
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
     }];
 }
