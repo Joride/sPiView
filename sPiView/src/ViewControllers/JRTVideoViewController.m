@@ -8,6 +8,7 @@
 
 #import "JRTVideoViewController.h"
 #import "JRTH264VideoStreamController.h"
+#import "UIImage+LaunchImage.h"
 
 @interface JRTVideoViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
@@ -24,7 +25,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    ((UIImageView *)self.view).image = [UIImage imageNamed: @"launchImage-640x1136"];
+    ((UIImageView *)self.view).image = [UIImage launchImage];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -61,10 +62,7 @@
         videoFrame.size = size;
         self->_videoStreamController.sampleBufferDisplayLayer.frame = videoFrame;
 
-        UIImage * image = (size.width >= size.height) ?
-        [UIImage imageNamed: @"launchImage-1136x640"] :
-        [UIImage imageNamed: @"launchImage-640x1136"];
-
+        UIImage * image = [UIImage launchImage];
         ((UIImageView *)self.view).image = image;
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
     }];
