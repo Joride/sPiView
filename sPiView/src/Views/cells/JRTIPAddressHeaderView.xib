@@ -8,28 +8,28 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="JRTIPAddressHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="440" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="499" height="38"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyn-TA-2Ey">
-                    <rect key="frame" x="8" y="25" width="96" height="21"/>
+                    <rect key="frame" x="8" y="17" width="107" height="21"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <animations/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wyn-TA-2Ey" secondAttribute="bottom" constant="26" id="9tu-jb-szP"/>
-                <constraint firstItem="wyn-TA-2Ey" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="25" id="SNy-Ef-KvZ"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wyn-TA-2Ey" secondAttribute="trailing" constant="8" id="YX4-4X-c82"/>
-                <constraint firstItem="wyn-TA-2Ey" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="r0l-wD-EJB"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wyn-TA-2Ey" secondAttribute="trailing" constant="8" id="KLg-De-MKE"/>
+                <constraint firstItem="wyn-TA-2Ey" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="Qur-mM-r9s"/>
+                <constraint firstAttribute="bottom" secondItem="wyn-TA-2Ey" secondAttribute="bottom" id="Z3g-nV-Jak"/>
+                <constraint firstItem="wyn-TA-2Ey" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="17" id="oSz-B4-ciB"/>
             </constraints>
             <connections>
                 <outlet property="titleLabel" destination="wyn-TA-2Ey" id="9xl-7Y-ovX"/>
             </connections>
-            <point key="canvasLocation" x="233" y="190"/>
+            <point key="canvasLocation" x="327.5" y="84.5"/>
         </collectionReusableView>
     </objects>
 </document>

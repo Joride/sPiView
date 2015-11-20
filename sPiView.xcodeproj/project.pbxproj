@@ -45,6 +45,7 @@
 		A2D445301A18B0DF008F9060 /* JRTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445291A18B0DF008F9060 /* JRTVideoViewController.m */; };
 		A2D445331A18B10F008F9060 /* icons-launchimages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2D445321A18B10F008F9060 /* icons-launchimages.xcassets */; };
 		A2D445391A18B127008F9060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D445361A18B127008F9060 /* Main.storyboard */; };
+		A2E508B61BFF247200DB4774 /* UIColor+sPiView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E508B51BFF247200DB4774 /* UIColor+sPiView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		A2D445291A18B0DF008F9060 /* JRTVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTVideoViewController.m; sourceTree = "<group>"; };
 		A2D445321A18B10F008F9060 /* icons-launchimages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "icons-launchimages.xcassets"; sourceTree = "<group>"; };
 		A2D445371A18B127008F9060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A2E508B41BFF247200DB4774 /* UIColor+sPiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+sPiView.h"; sourceTree = "<group>"; };
+		A2E508B51BFF247200DB4774 /* UIColor+sPiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+sPiView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,19 +279,21 @@
 		A2D445191A18B0DF008F9060 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A2A08BDA1BFCF2AF00EBDFDA /* views */,
 				A2A08BBD1BFB922A00EBDFDA /* IP-addresses */,
 				A2D445361A18B127008F9060 /* Main.storyboard */,
 				A2D4451A1A18B0DF008F9060 /* AppDelegate.h */,
 				A2D4451B1A18B0DF008F9060 /* AppDelegate.m */,
 				A2A08BA21BFB2B0000EBDFDA /* UIImage+LaunchImage.h */,
 				A2A08BA31BFB2B0000EBDFDA /* UIImage+LaunchImage.m */,
+				A2E508B41BFF247200DB4774 /* UIColor+sPiView.h */,
+				A2E508B51BFF247200DB4774 /* UIColor+sPiView.m */,
 				A2A08BCB1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.h */,
 				A2A08BCC1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m */,
 				A2A08BD41BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.h */,
 				A2A08BD51BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m */,
 				A2733A211BF9E22100641F0E /* H264VideoProcessing */,
 				A2D445241A18B0DF008F9060 /* Networking */,
+				A2A08BDA1BFCF2AF00EBDFDA /* views */,
 				A2D445271A18B0DF008F9060 /* ViewControllers */,
 			);
 			path = src;
@@ -447,6 +452,7 @@
 				A2A08BC51BFB92C900EBDFDA /* JRTIPAddress+CoreDataProperties.m in Sources */,
 				A2A08BD61BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m in Sources */,
 				A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */,
+				A2E508B61BFF247200DB4774 /* UIColor+sPiView.m in Sources */,
 				A2A08BC01BFB925600EBDFDA /* IP-addresses.xcdatamodeld in Sources */,
 				A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */,
 				A2D445301A18B0DF008F9060 /* JRTVideoViewController.m in Sources */,

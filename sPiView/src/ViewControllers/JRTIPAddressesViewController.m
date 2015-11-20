@@ -10,6 +10,7 @@
 #import "JRTEditIPAddressViewController.h"
 #import "JRTIPAddressesController.h"
 #import "JRTIPAddressesCollectionViewDataSource.h"
+#import "UIColor+sPiView.h"
 
 @interface JRTIPAddressesViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -29,7 +30,21 @@
 - (void) setupCollectionView
 {
     self.collectionView.alwaysBounceVertical = YES;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    CGFloat red = 0;
+    CGFloat green = 0;
+    CGFloat blue = 0;
+    UIColor * raspberryPiGreen = [UIColor raspberryPiGreen];
+    [raspberryPiGreen getRed: &red
+                       green: &green
+                        blue: &blue
+                       alpha: NULL];
+
+
+    UIColor * collectionViewColor = [UIColor colorWithRed: red
+                                                    green: green
+                                                     blue: blue
+                                                    alpha: 0.5];
+    self.collectionView.backgroundColor = collectionViewColor;
     self.dataSource = [[JRTIPAddressesCollectionViewDataSource alloc] init];
     self.dataSource.mainQueueManagedObjectContext = self.IPAddressesController.mainQueueContext;
     self.dataSource.IPAddressesController = self.IPAddressesController;
@@ -41,9 +56,14 @@
     flowLayout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     NSAssert([flowLayout isKindOfClass: [UICollectionViewFlowLayout class]],
              @"Expecint a UICollectionViewFlowLayout here");
-    flowLayout.sectionHeadersPinToVisibleBounds = YES;
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 20, 0);
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 10, 0);
     flowLayout.minimumLineSpacing = 1.00f / [[UIScreen mainScreen] scale];
+
+    if ([flowLayout respondsToSelector: @selector(setSectionHeadersPinToVisibleBounds:)])
+    {
+        // from iOS 9
+        flowLayout.sectionHeadersPinToVisibleBounds = YES;
+    }
 }
 - (void) setupNavigationItems
 {

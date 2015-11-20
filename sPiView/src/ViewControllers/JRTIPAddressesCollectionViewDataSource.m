@@ -11,6 +11,7 @@
 #import "JRTIPAddress.h"
 #import "JRTIPAddressesController.h"
 #import "JRTIPAddressHeaderView.h"
+#import "UIColor+sPiView.h"
 
 @interface JRTIPAddressesCollectionViewDataSource ()
 <NSFetchedResultsControllerDelegate>
@@ -175,10 +176,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 referenceSizeForHeaderInSection:(NSInteger)section
 {
     // set the width to match the collectionview width
-    self.layoutCellWidth.constant = CGRectGetWidth(self.collectionView.bounds);
+    self.headerWidth.constant = CGRectGetWidth(self.collectionView.bounds);
 
     CGSize layoutSize = CGSizeZero;
     layoutSize = [self.layoutHeader systemLayoutSizeFittingSize: UILayoutFittingCompressedSize];
+    
     return layoutSize;
 }
 
@@ -204,7 +206,7 @@ referenceSizeForHeaderInSection:(NSInteger)section
     headerView.titleLabel.text = title;
 
     headerView.titleLabel.textColor = [UIColor whiteColor];
-    headerView.backgroundColor = [UIColor darkGrayColor];
+    headerView.backgroundColor = [UIColor raspberryPiGreen];
 }
 
 - (void) configureCell: (JRTIPAddressCollectionViewCell *) cell
@@ -215,7 +217,12 @@ referenceSizeForHeaderInSection:(NSInteger)section
     cell.IPAddressLabel.text = IPAddress.ipAddress;
     cell.titleLabel.text = IPAddress.title;
     cell.isSelectedLabel.hidden = !IPAddress.isSelected.boolValue;
-    cell.backgroundColor = [UIColor lightGrayColor];
+
+    cell.titleLabel.textColor = [UIColor raspberryPiGreen];
+    cell.IPAddressLabel.textColor = [UIColor raspberryPiRed];
+
+    UIColor * cellColor = [UIColor whiteColor];
+    cell.backgroundColor = cellColor;
 }
 
 #pragma mark - FetchedRestultController
