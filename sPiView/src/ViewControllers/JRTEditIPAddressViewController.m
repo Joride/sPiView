@@ -10,6 +10,7 @@
 #import "NSManagedObjectContext+Persisting.h"
 #import "JRTIPAddress.h"
 #import "JRTIPAddressesController.h"
+#import "UIColor+sPiView.h"
 
 @interface JRTEditIPAddressViewController ()
 <UITextFieldDelegate>
@@ -24,6 +25,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor raspberryPiGreen];
+    self.IPAddressLabel.textColor = [UIColor raspberryPiRed];
     [self setupNavigationItems];
 }
 -(void)setIPAddress:(JRTIPAddress *)IPAddress
@@ -72,8 +75,17 @@
 #pragma mark -
 - (void) doneButtonTapped: (UIBarButtonItem *) barButtonItem
 {
-    // set this IP address as the selected one
-    [self.IPAddressesController setIPAddressSelected: self.selectedIPAddress];
+    if (0 == self.selectedIPAddress.ipAddress.length &&
+        0 == self.selectedIPAddress.title.length)
+    {
+        [self.selectedIPAddress.managedObjectContext deleteObject: self.selectedIPAddress];
+    }
+    else
+    {
+        // set this IP address as the selected one
+        [self.IPAddressesController setIPAddressSelected: self.selectedIPAddress];
+    }
+
 
     // save
     if (self.selectedIPAddress.managedObjectContext.hasChanges)

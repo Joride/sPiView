@@ -2,7 +2,7 @@
 //  JRTIPAddressHeaderVIew.m
 //  sPiView
 //
-//  Created by Jorrit van Asselt on 19-11-15.
+//  Created by Joride on 19-11-15.
 //  Copyright © 2015 KerrelInc. All rights reserved.
 //
 
