@@ -15,5 +15,13 @@
 @end
 
 @implementation JRTIPAddressCollectionViewCell
+- (IBAction)infoButtonTapped:(UIButton *)sender
+{
+    id <JRTIPAddressCollectionViewCellDelegate> delegate = self.delegate;
+    if ([delegate respondsToSelector:@selector(IPAddressCollectionViewCellDidTapInfoButton:)])
+    {
+        [delegate IPAddressCollectionViewCellDidTapInfoButton: self];
+    }
+}
 
 @end

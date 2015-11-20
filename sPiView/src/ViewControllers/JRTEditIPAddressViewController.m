@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITextField *IPAddressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (nonatomic) BOOL needsUpdateUI;
 @end
 
 @implementation JRTEditIPAddressViewController
@@ -28,6 +29,10 @@
     self.view.backgroundColor = [UIColor raspberryPiGreen];
     self.IPAddressLabel.textColor = [UIColor raspberryPiRed];
     [self setupNavigationItems];
+    if (self.needsUpdateUI)
+    {
+        [self updateUI];
+    }
 }
 -(void)setIPAddress:(JRTIPAddress *)IPAddress
 {
@@ -36,6 +41,7 @@
         _managedObjectContext = nil;
         _IPAddress = IPAddress;
         _selectedIPAddress = _IPAddress;
+        self.needsUpdateUI = YES;
         [self updateUI];
     }
 }
@@ -48,6 +54,9 @@
         _IPAddress = nil;
         _managedObjectContext = managedObjectContext;
         _selectedIPAddress = [JRTIPAddress newIPAddressInManagedObjectContext: managedObjectContext];
+        self.needsUpdateUI = YES;
+        [self updateUI];
+
     }
 }
 - (void) updateUI

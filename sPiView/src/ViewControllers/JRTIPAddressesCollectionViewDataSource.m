@@ -14,7 +14,8 @@
 #import "UIColor+sPiView.h"
 
 @interface JRTIPAddressesCollectionViewDataSource ()
-<NSFetchedResultsControllerDelegate>
+<NSFetchedResultsControllerDelegate,
+JRTIPAddressCollectionViewCellDelegate>
 @property (nonatomic, readonly) JRTIPAddressCollectionViewCell * layoutCell;
 @property (nonatomic, readonly) JRTIPAddressHeaderView * layoutHeader;
 @property (nonatomic, strong) NSLayoutConstraint * headerWidth;
@@ -117,6 +118,7 @@
     JRTIPAddressCollectionViewCell * cell;
     cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"cellID"
                                                      forIndexPath: indexPath];
+    cell.delegate = self;
     [self configureCell: cell
             atIndexPath: indexPath];
     return cell;
@@ -283,5 +285,27 @@ referenceSizeForHeaderInSection:(NSInteger)section
     DebugLog(@"controllerDidChangeContent:");
     [self.collectionView reloadData];
 }
-
+#pragma mark - JRTIPAddressCollectionViewCellDelegate
+-(void)IPAddressCollectionViewCellDidTapInfoButton:(JRTIPAddressCollectionViewCell *)cell
+{
+    NSIndexPath * indexPath = [self.collectionView indexPathForItemAtPoint: cell.center];
+    if (nil != indexPath)
+    {
+        id <JRTIPAddressesCollectionViewDataSourceDelegate> delegate = self.delegate;
+        if ([delegate respondsToSelector:@selector(IPAddressesCollectionViewDataSource:didSelectIPAddress:)])
+        {
+            JRTIPAddress * IPAddress;
+            IPAddress = [self.fetchedResultsController objectAtIndexPath: indexPath];
+            [delegate IPAddressesCollectionViewDataSource:self
+                                       didSelectIPAddress: IPAddress];
+        }
+    }
+    else
+    {
+        DebugLog(@"ERROR: no indexPath found for cell in %@ (%@). Cell: %@",
+                 NSStringFromClass([self class]),
+                 NSStringFromSelector(_cmd),
+                 cell);
+    }
+}
 @end

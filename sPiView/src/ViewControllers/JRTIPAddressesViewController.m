@@ -7,15 +7,19 @@
 //
 
 #import "JRTIPAddressesViewController.h"
+#import "JRTIPAddress.h"
 #import "JRTEditIPAddressViewController.h"
 #import "JRTIPAddressesController.h"
 #import "JRTIPAddressesCollectionViewDataSource.h"
 #import "UIColor+sPiView.h"
 
 @interface JRTIPAddressesViewController ()
+<JRTIPAddressesCollectionViewDataSourceDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JRTIPAddressesCollectionViewDataSource * dataSource;
+@property (nonatomic, strong) JRTIPAddress * selectedIPAddress;
 @end
+
 
 @implementation JRTIPAddressesViewController
 -(void)viewDidLoad
@@ -49,6 +53,8 @@
     self.dataSource.mainQueueManagedObjectContext = self.IPAddressesController.mainQueueContext;
     self.dataSource.IPAddressesController = self.IPAddressesController;
     self.dataSource.collectionView = self.collectionView;
+    self.dataSource.delegate = self;
+
     self.collectionView.delegate = self.dataSource;
     self.collectionView.dataSource = self.dataSource;
 
@@ -106,13 +112,30 @@
         NSAssert([editIPAddressViewController isKindOfClass: [JRTEditIPAddressViewController class]],
                  @"Expecting a JRTEditIPAddressViewController here");
 
-        editIPAddressViewController.title = NSLocalizedString(@"New IP address", nil);
         editIPAddressViewController.IPAddressesController = self.IPAddressesController;
 
-        NSManagedObjectContext * newManagedObjectContext;
-        newManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
-        newManagedObjectContext.parentContext = self.IPAddressesController.mainQueueContext;
-        editIPAddressViewController.managedObjectContext = self.IPAddressesController.mainQueueContext;
+        // see the documentation on JRTEditIPAddressViewController
+        // to find out why handling creating a new one is handled different
+        // from modifying an existing one
+        if (nil != self.selectedIPAddress)
+        {
+            // an existing IP address is going to be modified
+            editIPAddressViewController.title = [NSString localizedStringWithFormat: @"%@ %@",
+                                                 NSLocalizedString(@"Modify", nil),
+                                                 self.selectedIPAddress.ipAddress];
+            editIPAddressViewController.IPAddress = self.selectedIPAddress;
+            self.selectedIPAddress = nil;
+        }
+        else
+        {
+            // a new IP address is going to be created
+            NSManagedObjectContext * newManagedObjectContext;
+            newManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
+            newManagedObjectContext.parentContext = self.IPAddressesController.mainQueueContext;
+            editIPAddressViewController.managedObjectContext = self.IPAddressesController.mainQueueContext;
+            editIPAddressViewController.title = NSLocalizedString(@"New IP address", nil);
+        }
+
     }
 }
 -(void)viewWillTransitionToSize:(CGSize)size
@@ -123,6 +146,14 @@
          [self.collectionView.collectionViewLayout invalidateLayout];
      }
                                  completion:NULL];
+}
+#pragma mark - JRTIPAddressesCollectionViewDataSourceDelegate
+-(void)IPAddressesCollectionViewDataSource:(JRTIPAddressesCollectionViewDataSource *)dataSource
+                        didSelectIPAddress:(JRTIPAddress *)IPAddress
+{
+    self.selectedIPAddress = IPAddress;
+    [self performSegueWithIdentifier: @"pushJRTEditIPAddressViewController"
+                              sender: self];
 }
 @end
 

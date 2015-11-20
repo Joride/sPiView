@@ -35,6 +35,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM2-Ti-BbP">
+                        <rect key="frame" x="369" y="31" width="22" height="22"/>
+                        <animations/>
+                        <connections>
+                            <action selector="infoButtonTapped:" destination="NdJ-2l-dDv" eventType="touchUpInside" id="UI5-Kc-oaw"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,12 +51,14 @@
                 <constraint firstItem="paO-4r-mTu" firstAttribute="top" secondItem="8ru-W8-aF8" secondAttribute="bottom" constant="11" id="4ZC-Jl-dB1"/>
                 <constraint firstItem="paO-4r-mTu" firstAttribute="leading" secondItem="8ru-W8-aF8" secondAttribute="leading" id="53H-k4-7Yv"/>
                 <constraint firstItem="8ru-W8-aF8" firstAttribute="leading" secondItem="NdJ-2l-dDv" secondAttribute="leading" constant="8" id="9Ao-wN-x3m"/>
+                <constraint firstItem="qMi-uV-53o" firstAttribute="leading" secondItem="cM2-Ti-BbP" secondAttribute="trailing" constant="14" id="BmC-sZ-pPb"/>
+                <constraint firstItem="cM2-Ti-BbP" firstAttribute="centerY" secondItem="NdJ-2l-dDv" secondAttribute="centerY" id="GgT-eZ-LBs"/>
                 <constraint firstItem="8ru-W8-aF8" firstAttribute="top" secondItem="NdJ-2l-dDv" secondAttribute="top" constant="8" id="MUX-Ne-VH2"/>
+                <constraint firstItem="cM2-Ti-BbP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="paO-4r-mTu" secondAttribute="trailing" constant="8" id="St8-J7-gF1"/>
                 <constraint firstItem="qMi-uV-53o" firstAttribute="centerY" secondItem="NdJ-2l-dDv" secondAttribute="centerY" id="Zzs-a4-Y1k"/>
                 <constraint firstAttribute="trailing" secondItem="qMi-uV-53o" secondAttribute="trailing" constant="8" id="bKV-Cv-Slt"/>
-                <constraint firstItem="qMi-uV-53o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="paO-4r-mTu" secondAttribute="trailing" constant="8" id="c9f-dc-aDz"/>
                 <constraint firstAttribute="bottom" secondItem="paO-4r-mTu" secondAttribute="bottom" constant="20" id="mYN-8f-GYK"/>
-                <constraint firstItem="qMi-uV-53o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8ru-W8-aF8" secondAttribute="trailing" constant="8" id="pog-OG-0iN"/>
+                <constraint firstItem="cM2-Ti-BbP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8ru-W8-aF8" secondAttribute="trailing" constant="8" id="s2z-3k-Ipd"/>
             </constraints>
             <size key="customSize" width="425" height="83"/>
             <connections>
