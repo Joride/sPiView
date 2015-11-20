@@ -110,9 +110,11 @@
 {
     if (currentIPAddress != _currentIPAddress)
     {
+        self.videoStreamControllerStale  = YES;
         [_currentIPAddress removeObserver: self
                                forKeyPath: @"isSelected"];
         _currentIPAddress = currentIPAddress;
+        [self updateTitle];
         [_currentIPAddress addObserver: self
                             forKeyPath: @"isSelected"
                                options: NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
