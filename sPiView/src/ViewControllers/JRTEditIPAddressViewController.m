@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *IPAddressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (nonatomic) BOOL needsUpdateUI;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @end
 
 @implementation JRTEditIPAddressViewController
@@ -146,5 +147,52 @@ replacementString:(NSString *)string
         self.selectedIPAddress.title = newText;
     }
     return YES;
+}
+
+#pragma mark -
+
+- (IBAction)deleteButtonTapped:(UIButton *)sender
+{
+    UIAlertAction * cancelAction;
+    cancelAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Cancel", nil)
+                                            style:UIAlertActionStyleCancel
+                                          handler: NULL];
+
+    UIAlertAction * deleteAction;
+    deleteAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Delete", nil)
+                                            style:UIAlertActionStyleDestructive
+                                          handler:^(UIAlertAction * _Nonnull action) {
+                                              [self deleteSelectedIPAddress];
+                                              [self.navigationController popViewControllerAnimated: YES];
+                                          }];
+    UIAlertController * alertController;
+    alertController = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"Are you sure?", nil)
+                                                          message: NSLocalizedString(@"You are about to delete an IP address", nil)
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction: cancelAction];
+    [alertController addAction: deleteAction];
+
+
+    [self presentViewController: alertController
+                       animated: YES
+                     completion: NULL];
+}
+
+
+- (void) deleteSelectedIPAddress
+{
+    [self.selectedIPAddress.managedObjectContext deleteObject: self.selectedIPAddress];
+
+    // save
+    if (self.selectedIPAddress.managedObjectContext.hasChanges)
+    {
+        NSError * error = nil;
+        if (![self.selectedIPAddress.managedObjectContext persistError: &error])
+        {
+            DebugLog(@"ERROR saving MOC in %@: %@",
+                     NSStringFromClass([self class]),
+                     error);
+        }
+    }
 }
 @end

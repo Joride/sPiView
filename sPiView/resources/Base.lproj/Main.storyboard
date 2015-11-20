@@ -116,26 +116,43 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaS-29-e7r">
+                                <rect key="frame" x="20" y="536" width="560" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Delete this IP address">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="5a9-wV-iec" eventType="touchUpInside" id="riU-9D-VXB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.30980392159999998" green="0.65098039220000004" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jes-NH-6Xx" firstAttribute="centerY" secondItem="G9m-SD-XDw" secondAttribute="centerY" id="19L-Eo-U5a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G9m-SD-XDw" secondAttribute="trailing" id="7Kh-yP-RdP"/>
+                            <constraint firstItem="4fy-Hn-Eqz" firstAttribute="top" secondItem="eaS-29-e7r" secondAttribute="bottom" constant="20" id="7a7-ce-9CB"/>
                             <constraint firstItem="G9m-SD-XDw" firstAttribute="leading" secondItem="jes-NH-6Xx" secondAttribute="trailing" constant="8" id="HFa-4F-dOO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="foj-cS-sMQ" secondAttribute="trailing" id="Ui7-bs-kCo"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jes-NH-6Xx" secondAttribute="leading" id="WRf-QZ-vbV"/>
                             <constraint firstItem="fjs-K4-kjg" firstAttribute="width" secondItem="jes-NH-6Xx" secondAttribute="width" id="ZYJ-NV-Rp2"/>
                             <constraint firstItem="foj-cS-sMQ" firstAttribute="top" secondItem="G9m-SD-XDw" secondAttribute="bottom" constant="8" id="aWG-Nf-3SE"/>
                             <constraint firstItem="fjs-K4-kjg" firstAttribute="leading" secondItem="jes-NH-6Xx" secondAttribute="leading" id="bbD-8b-ezQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eaS-29-e7r" secondAttribute="trailing" id="eeG-pc-pYf"/>
+                            <constraint firstItem="eaS-29-e7r" firstAttribute="top" relation="greaterThanOrEqual" secondItem="foj-cS-sMQ" secondAttribute="bottom" priority="750" constant="8" id="fn9-bg-fgB"/>
                             <constraint firstItem="fjs-K4-kjg" firstAttribute="centerY" secondItem="foj-cS-sMQ" secondAttribute="centerY" id="lyk-BO-sVL"/>
                             <constraint firstItem="foj-cS-sMQ" firstAttribute="leading" secondItem="fjs-K4-kjg" secondAttribute="trailing" constant="8" id="ntt-wy-c2k"/>
                             <constraint firstItem="G9m-SD-XDw" firstAttribute="top" secondItem="CBv-U3-5D7" secondAttribute="bottom" constant="8" id="x4j-qI-nfv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="eaS-29-e7r" secondAttribute="leading" id="yU2-gR-dhv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="IPAddressLabel" destination="jes-NH-6Xx" id="i23-0u-eeH"/>
                         <outlet property="IPAddressTextField" destination="G9m-SD-XDw" id="RrU-DX-grz"/>
+                        <outlet property="deleteButton" destination="eaS-29-e7r" id="1JU-SB-nNm"/>
                         <outlet property="descriptionLabel" destination="fjs-K4-kjg" id="aoE-ME-itp"/>
                         <outlet property="descriptionTextField" destination="foj-cS-sMQ" id="nM1-Zo-xDZ"/>
                     </connections>
