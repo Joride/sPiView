@@ -96,13 +96,14 @@
     if (nil == _videoStreamController)
     {
         self.currentIPAddress = [self.IPAddressesController selectedIPAddressMainQueueContext];
-        NSAssert(nil != self.currentIPAddress,
-                 @"There should be a selected IP address before starting a stream");
-        NSString * IPAddress = self.currentIPAddress.ipAddress;
+        if (nil != self.currentIPAddress)
+        {
+            NSString * IPAddress = self.currentIPAddress.ipAddress;
 
-        _videoStreamController = [[JRTH264VideoStreamController alloc]
-                                  initWithIPAddress: IPAddress];
-        _videoStreamController.sampleBufferDisplayLayer.backgroundColor = [UIColor clearColor].CGColor;
+            _videoStreamController = [[JRTH264VideoStreamController alloc]
+                                      initWithIPAddress: IPAddress];
+            _videoStreamController.sampleBufferDisplayLayer.backgroundColor = [UIColor clearColor].CGColor;
+        }
     }
     return _videoStreamController;
 }
