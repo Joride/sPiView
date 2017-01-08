@@ -31,6 +31,7 @@
 -(instancetype)initWithSampleHandler: (void(^)(CMSampleBufferRef sampleBuffer)) sampleHandler
                          handleQueue: (dispatch_queue_t) queue
 NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*!
  @method - (void) processBytesFromStream: (NSInputStream *) inputStream

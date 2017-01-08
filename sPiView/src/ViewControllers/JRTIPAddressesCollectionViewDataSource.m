@@ -149,6 +149,11 @@ JRTIPAddressCollectionViewCellDelegate>
                       atIndexPath: indexPath];
         headerView = IPAddressHeader;
     }
+    else
+    {
+        headerView = [[UICollectionReusableView alloc] init];
+        NSAssert(NO, @"PROGRAMMING ERROR: this clause shoul not be reached.");
+    }
     return headerView;
 }
 
