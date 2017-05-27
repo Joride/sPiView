@@ -71,6 +71,7 @@ didReceiveDataInStream: (NSInputStream *) inputStream;
                      receiver: (id<JRTSocketReceiver>) receiver
                 callbackQueue: (dispatch_queue_t) callbackQueue
 NS_DESIGNATED_INITIALIZER;
+-(instancetype)init NS_UNAVAILABLE;
 
 /*!
  @method -(BOOL)writeBytes:(uint8_t *)bytes length:(NSInteger)length
