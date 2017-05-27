@@ -39,6 +39,7 @@
 		A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */; };
 		A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */; };
 		A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */; };
+		A2C55B191EDA049600EFCA80 /* LightSwitchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */; };
 		A2D4450E1A18AF16008F9060 /* sPiViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4450D1A18AF16008F9060 /* sPiViewTests.m */; };
 		A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4451B1A18B0DF008F9060 /* AppDelegate.m */; };
 		A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445261A18B0DF008F9060 /* JRTSocket.m */; };
@@ -108,6 +109,8 @@
 		A2A08BE31BFDCB2200EBDFDA /* JRTIPAddressHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressHeaderView.h; path = Views/cells/JRTIPAddressHeaderView.h; sourceTree = "<group>"; };
 		A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressHeaderView.m; path = Views/cells/JRTIPAddressHeaderView.m; sourceTree = "<group>"; };
 		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
+		A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sPiView-Bridging-Header.h"; sourceTree = "<group>"; };
+		A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightSwitchesViewController.swift; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D445071A18AF16008F9060 /* sPiViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sPiViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4450C1A18AF16008F9060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */,
 				A2A08BD11BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.h */,
 				A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */,
+				A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */,
+				A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 					A2D444ED1A18AF16008F9060 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 2C6KT7L4EZ;
+						LastSwiftMigration = 0830;
 					};
 					A2D445061A18AF16008F9060 = {
 						CreatedOnToolsVersion = 6.1;
@@ -468,6 +474,7 @@
 				A2A08BDE1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m in Sources */,
 				A2186FCE1BF9E56C000AF257 /* main.m in Sources */,
 				A2A08BD31BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m in Sources */,
+				A2C55B191EDA049600EFCA80 /* LightSwitchesViewController.swift in Sources */,
 				A2A08BD91BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m in Sources */,
 				A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */,
 			);
@@ -594,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -612,6 +620,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "sPiView/src/ViewControllers/sPiView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -620,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -638,12 +650,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "sPiView/src/ViewControllers/sPiView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		A2D445151A18AF16008F9060 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2C6KT7L4EZ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -665,6 +680,7 @@
 		A2D445161A18AF16008F9060 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2C6KT7L4EZ;
 				FRAMEWORK_SEARCH_PATHS = (

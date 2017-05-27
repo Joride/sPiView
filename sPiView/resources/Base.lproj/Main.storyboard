@@ -214,7 +214,7 @@
         <!--Item-->
         <scene sceneID="Bfr-0X-XxA">
             <objects>
-                <viewController id="Mre-cg-VnS" sceneMemberID="viewController">
+                <viewController id="Mre-cg-VnS" customClass="LightSwitchesViewController" customModule="sPiView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n6j-8c-OFg"/>
                         <viewControllerLayoutGuide type="bottom" id="lBR-2E-nGY"/>
