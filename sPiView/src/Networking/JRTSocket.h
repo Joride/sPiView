@@ -21,8 +21,8 @@
  @param inputStream
  An NSInputStream that has bytes available to read
  */
-- (void) socket: (JRTSocket *) socket
-didReceiveDataInStream: (NSInputStream *) inputStream;
+- (void) socket: (JRTSocket * _Nonnull) socket
+didReceiveDataInStream: (NSInputStream * _Nonnull) inputStream;
 
 
 /*!
@@ -30,7 +30,7 @@ didReceiveDataInStream: (NSInputStream *) inputStream;
  @param socket
  The JRTSocket that was closed.- (void) socketClosed:(JRTSocket *)socket;
  */
-- (void) socketClosed:(JRTSocket *)socket;
+- (void) socketClosed:(JRTSocket * _Nonnull)socket;
 @end
 
 
@@ -66,12 +66,12 @@ didReceiveDataInStream: (NSInputStream *) inputStream;
  @param callbackQueue
  A queue to be used for calling the receiver property. Cannot be NULL.
  */
-- (instancetype) initWithHost: (NSString *) hostAddress
-                   portNumber: (NSNumber *) portNumber
-                     receiver: (id<JRTSocketReceiver>) receiver
-                callbackQueue: (dispatch_queue_t) callbackQueue
+- (instancetype _Nonnull) initWithHost: (NSString * _Nonnull) hostAddress
+                   portNumber: (NSNumber * _Nonnull) portNumber
+                     receiver: (id<JRTSocketReceiver> _Nonnull) receiver
+                callbackQueue: (dispatch_queue_t _Nonnull) callbackQueue
 NS_DESIGNATED_INITIALIZER;
--(instancetype)init NS_UNAVAILABLE;
+-(instancetype _Nonnull)init NS_UNAVAILABLE;
 
 /*!
  @method -(BOOL)writeBytes:(uint8_t *)bytes length:(NSInteger)length
@@ -84,7 +84,7 @@ NS_DESIGNATED_INITIALIZER;
  @return YES if all bytes were succesfully written to the socket. No if there
  was an error or not all bytes were written.
  */
-- (BOOL) writeBytes: (uint8_t *) bytes
+- (BOOL) writeBytes: (uint8_t * _Nonnull) bytes
              length: (NSInteger) length;
 
 - (void) close;

@@ -16,18 +16,6 @@ class LightSwitchesViewController: UIViewController
         setupButton()
     }
     
-    private lazy var button: UIButton = {
-        let aButton = UIButton(type: .system)
-        aButton.addTarget(self,
-                          action: #selector(LightSwitchesViewController.toggleLights),
-                          for: .touchUpInside)
-        aButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        aButton.backgroundColor = UIColor.white
-        self.view.addSubview(aButton)
-        return aButton
-    }()
-    
     private func setupButton()
     {
         button.setTitle("SET", for: .normal)
@@ -56,11 +44,61 @@ class LightSwitchesViewController: UIViewController
         if buttonTapped
         {
             view.backgroundColor = UIColor.black
+            sendOnMessage()
         }
         else
         {
             view.backgroundColor = UIColor.white
+            sendOffMessage()
         }
     }
+    
+    private func sendOnMessage()
+    {
+        var bytes: [UInt8] = [0b10000000, 1, 0b11000000]
+        socket.writeBytes(&bytes,
+                          length: 3)
+    }
+    private func sendOffMessage()
+    {
+        var bytes: [UInt8] = [0b10000000, 0, 0b11000000]
+        socket.writeBytes(&bytes,
+                          length: 3)
+    }
+    
+    private lazy var button: UIButton = {
+        let aButton = UIButton(type: .system)
+        aButton.addTarget(self,
+                          action: #selector(LightSwitchesViewController.toggleLights),
+                          for: .touchUpInside)
+        aButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        aButton.backgroundColor = UIColor.white
+        self.view.addSubview(aButton)
+        return aButton
+    }()
+    
+    private lazy var socket: JRTSocket = {
+        let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.LightSwitchesViewControllerQueue")
+        let aSocket = JRTSocket(host: "192.168.1.16",
+                                portNumber: 82,
+                                receiver: self,
+                                callbackQueue: queue)
+        return aSocket
+    }()
 }
 
+extension LightSwitchesViewController: JRTSocketReceiver
+{
+    func socketClosed(_ socket: JRTSocket)
+    {
+        
+    }
+    
+    func socket(_ socket: JRTSocket,
+                didReceiveDataIn inputStream: InputStream)
+    {
+        
+    }
+    
+}
