@@ -31,6 +31,7 @@ const char * kJRTSocketQueueName =  "com.kerrelinc.JRTSocket";
 }
 -(void)close
 {
+    NSAssert(NO, @"Not implemented");
     /*
      Closing the Connection
      To close your connection, unschedule it from the run loop, set the connection’s delegate to nil (the delegate is unretained), close both of the associated streams with the close method, and then release the streams themselves (if you are not using ARC) or set them to nil (if you are). By default, this closes the underlying socket connection. There are two situations in which you must close it yourself, however:

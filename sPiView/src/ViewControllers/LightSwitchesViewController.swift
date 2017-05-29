@@ -14,6 +14,7 @@ class LightSwitchesViewController: UIViewController
     {
         super.viewDidLoad()
         setupButton()
+        print("\(socket)")
     }
     
     private func setupButton()
@@ -80,7 +81,7 @@ class LightSwitchesViewController: UIViewController
     
     private lazy var socket: JRTSocket = {
         let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.LightSwitchesViewControllerQueue")
-        let aSocket = JRTSocket(host: "192.168.1.16",
+        let aSocket = JRTSocket(host: "192.168.1.33",
                                 portNumber: 82,
                                 receiver: self,
                                 callbackQueue: queue)
@@ -98,7 +99,30 @@ extension LightSwitchesViewController: JRTSocketReceiver
     func socket(_ socket: JRTSocket,
                 didReceiveDataIn inputStream: InputStream)
     {
+        var buffer: [UInt8] = Array(repeating: 0, count: 1024)
+        var result = Int.max
+        var responseSize = 0
+        while inputStream.hasBytesAvailable && result > 0
+        {
+            result = inputStream.read(&buffer, maxLength: 1024)
+            
+            if result > 0
+            {
+                responseSize += result
+            }
+            else if result == 0
+            {
+                // end of stream
+            }
+            else // result < 0
+            {
+                print("ERROR reading from inputstream: '\(result)'")
+            }
+        }
         
+        for index in 0 ..< responseSize
+        {
+            print("\(String(buffer[index], radix: 2))")
+        }
     }
-    
 }

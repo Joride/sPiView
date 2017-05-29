@@ -28,7 +28,7 @@ didReceiveDataInStream: (NSInputStream * _Nonnull) inputStream;
 /*!
  @method - (void) socketClosed:(JRTSocket *)socket
  @param socket
- The JRTSocket that was closed.- (void) socketClosed:(JRTSocket *)socket;
+ The JRTSocket that was closed.
  */
 - (void) socketClosed:(JRTSocket * _Nonnull)socket;
 @end
@@ -67,9 +67,9 @@ didReceiveDataInStream: (NSInputStream * _Nonnull) inputStream;
  A queue to be used for calling the receiver property. Cannot be NULL.
  */
 - (instancetype _Nonnull) initWithHost: (NSString * _Nonnull) hostAddress
-                   portNumber: (NSNumber * _Nonnull) portNumber
-                     receiver: (id<JRTSocketReceiver> _Nonnull) receiver
-                callbackQueue: (dispatch_queue_t _Nonnull) callbackQueue
+                            portNumber: (NSNumber * _Nonnull) portNumber
+                              receiver: (id<JRTSocketReceiver> _Nonnull) receiver
+                         callbackQueue: (dispatch_queue_t _Nonnull) callbackQueue
 NS_DESIGNATED_INITIALIZER;
 -(instancetype _Nonnull)init NS_UNAVAILABLE;
 
