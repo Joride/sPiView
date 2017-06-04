@@ -619,7 +619,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "$SRCROOT/sPiView/src/supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -649,7 +649,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "$SRCROOT/sPiView/src/supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
