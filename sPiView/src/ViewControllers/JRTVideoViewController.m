@@ -50,6 +50,7 @@
 
     [self setupNavigationItems];
 }
+
 - (void) updateTitle
 {
     NSString * title;

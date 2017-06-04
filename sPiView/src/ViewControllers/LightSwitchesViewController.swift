@@ -19,21 +19,6 @@ class LightSwitchesViewController: UIViewController
             
         }
     }
-    /*
-     -(void)viewWillTransitionToSize:(CGSize)size
-     withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-     {
-     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-     CGRect videoFrame = self.videoStreamController.sampleBufferDisplayLayer.frame;
-     videoFrame.size = size;
-     self.videoStreamController.sampleBufferDisplayLayer.frame = videoFrame;
-     
-     UIImage * image = [UIImage launchImage];
-     self.imageView.image = image;
-     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-     }];
-     }
-     */
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
     {
@@ -43,9 +28,20 @@ class LightSwitchesViewController: UIViewController
             
         }
     }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        title =  NSLocalizedString("Switches", comment: "")
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        title =  NSLocalizedString("Switches", comment: "")
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        title = NSLocalizedString("Switches", comment: "")
         
         imageView.image = UIImage.launch()
         
