@@ -24,7 +24,18 @@ class LightSwitchesViewController: UIViewController
     {
         coordinator.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext) in
             self.imageView.image = UIImage.launch()
-        }) { (context: UIViewControllerTransitionCoordinatorContext) in
+            if size.width > size.height
+            {
+                self.stackTop?.constant = 2
+                self.stackBottom?.constant = -2
+            }
+            else
+            {
+                self.stackTop?.constant = 40
+                self.stackBottom?.constant = -40
+            }
+        })
+        { (context: UIViewControllerTransitionCoordinatorContext) in
             
         }
     }
@@ -59,6 +70,8 @@ class LightSwitchesViewController: UIViewController
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     var buttons: [JRTCircleVibrantView] = []
+    var stackTop: NSLayoutConstraint? = nil
+    var stackBottom: NSLayoutConstraint? = nil
     private func setupUI()
     {
         let button0 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
@@ -113,23 +126,23 @@ class LightSwitchesViewController: UIViewController
                                                attribute: .trailing,
                                                multiplier: 1.0,
                                                constant: 0)
-        let stackTop = NSLayoutConstraint(item: stackView,
-                                          attribute: .top,
-                                          relatedBy: .equal,
-                                          toItem: effectView.contentView,
-                                          attribute: .top,
-                                          multiplier: 1.0,
-                                          constant: 20)
-        let stackBottom = NSLayoutConstraint(item: stackView,
-                                             attribute: .bottom,
-                                             relatedBy: .equal,
-                                             toItem: effectView.contentView,
-                                             attribute: .bottom,
-                                             multiplier: 1.0,
-                                             constant: -20)
+        stackTop = NSLayoutConstraint(item: stackView,
+                                      attribute: .top,
+                                      relatedBy: .equal,
+                                      toItem: effectView.contentView,
+                                      attribute: .top,
+                                      multiplier: 1.0,
+                                      constant: 40)
+        stackBottom = NSLayoutConstraint(item: stackView,
+                                         attribute: .bottom,
+                                         relatedBy: .equal,
+                                         toItem: effectView.contentView,
+                                         attribute: .bottom,
+                                         multiplier: 1.0,
+                                         constant: -40)
         
         let effectLeading = NSLayoutConstraint(item: effectView,
-                                              attribute: .leading,
+                                               attribute: .leading,
                                               relatedBy: .equal,
                                               toItem: view!,
                                               attribute: .leading,
@@ -157,7 +170,7 @@ class LightSwitchesViewController: UIViewController
                                              multiplier: 1.0,
                                              constant: -0)
         
-        view!.addConstraints([stackLeading, stackTrailing, stackTop, stackBottom,
+        view!.addConstraints([stackLeading, stackTrailing, stackTop!, stackBottom!,
                               effectLeading, effectTrailing, effectTop, effectBottom])
         
         
@@ -192,13 +205,6 @@ class LightSwitchesViewController: UIViewController
                                                 constant: 0)
         view.addConstraints([spinnerCenterY, spinnerCenterX])
     }
-    
-//    func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        coordinator.animate(alongsideTransition: { (<#UIViewControllerTransitionCoordinatorContext#>) in
-//            <#code#>
-//        }, completion: <#T##((UIViewControllerTransitionCoordinatorContext) -> Void)?##((UIViewControllerTransitionCoordinatorContext) -> Void)?##(UIViewControllerTransitionCoordinatorContext) -> Void#>)
-//    }
-    
     
     fileprivate func toggleSwitch(atIndex: Int)
     {
