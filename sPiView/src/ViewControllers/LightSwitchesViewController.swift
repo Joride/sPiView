@@ -19,6 +19,30 @@ class LightSwitchesViewController: UIViewController
             
         }
     }
+    /*
+     -(void)viewWillTransitionToSize:(CGSize)size
+     withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+     {
+     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+     CGRect videoFrame = self.videoStreamController.sampleBufferDisplayLayer.frame;
+     videoFrame.size = size;
+     self.videoStreamController.sampleBufferDisplayLayer.frame = videoFrame;
+     
+     UIImage * image = [UIImage launchImage];
+     self.imageView.image = image;
+     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+     }];
+     }
+     */
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+    {
+        coordinator.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext) in
+            self.imageView.image = UIImage.launch()
+        }) { (context: UIViewControllerTransitionCoordinatorContext) in
+            
+        }
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
