@@ -16,9 +16,18 @@ class LightSwitchesViewController: UIViewController
     {
         super.viewDidLoad()
         setupUI()
-        print("\(socket)")
+        
+        if nil == _socket
+        {
+            let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.LightSwitchesViewControllerQueue")
+            _socket = JRTSocket(host: "192.168.1.33",
+                                portNumber: NSNumber(integerLiteral: kPortNumber),
+                                receiver: self,
+                                callbackQueue: queue)
+        }
     }
     
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     var buttons: [UIButton] = []
     private func setupUI()
     {
@@ -174,6 +183,30 @@ class LightSwitchesViewController: UIViewController
         {
             decodeMessage(bytes: message)
         }
+        
+        // spinner
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.color = UIColor.raspberryPiGreen()
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        
+        let spinnerCenterY = NSLayoutConstraint(item: spinner,
+                                            attribute: .centerY,
+                                            relatedBy: .equal,
+                                            toItem: view,
+                                            attribute: .centerY,
+                                            multiplier: 1,
+                                            constant: 0)
+        let spinnerCenterX = NSLayoutConstraint(item: spinner,
+                                                attribute: .centerX,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .centerX,
+                                                multiplier: 1,
+                                                constant: 0)
+        view.addConstraints([spinnerCenterY, spinnerCenterX])
     }
     
     func lightButtonTapped(button: UIButton)
@@ -182,12 +215,13 @@ class LightSwitchesViewController: UIViewController
         {
             if index != NSNotFound
             {
-                toggleOnSwitch(atIndex: index)
+                spinner.startAnimating()
+                toggleSwitch(atIndex: index)
             }
         }
     }
     
-    private func toggleOnSwitch(atIndex: Int)
+    private func toggleSwitch(atIndex: Int)
     {
         precondition(atIndex < 4, "There are only 4 switches, yet the index exceeds 4")
         
@@ -280,6 +314,11 @@ class LightSwitchesViewController: UIViewController
 
 extension LightSwitchesViewController: JRTSocketReceiver
 {
+    func socketOpened(_ socket: JRTSocket)
+    {
+        spinner.stopAnimating()
+    }
+    
     func socketClosed(_ socket: JRTSocket)
     {
         _socket = nil
@@ -333,6 +372,7 @@ extension LightSwitchesViewController: JRTSocketReceiver
                 let button = self.buttons[index]
                 button.setTitle(buttonTitle, for: .normal)
             }
+            self.spinner.stopAnimating()
         }
     }
     

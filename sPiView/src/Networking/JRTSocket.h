@@ -26,9 +26,16 @@ didReceiveDataInStream: (NSInputStream * _Nonnull) inputStream;
 
 
 /*!
+ @method - (void) socketOpened:(JRTSocket *)socket
+ @param socket
+ The sender of the message.
+ */
+- (void) socketOpened:(JRTSocket * _Nonnull)socket;
+
+/*!
  @method - (void) socketClosed:(JRTSocket *)socket
  @param socket
- The JRTSocket that was closed.
+ The sender of the message.
  */
 - (void) socketClosed:(JRTSocket * _Nonnull)socket;
 @end

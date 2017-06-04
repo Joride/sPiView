@@ -126,7 +126,7 @@ const char * kJRTSocketQueueName =  "com.kerrelinc.JRTSocket";
     switch (streamEvent)
     {
         case NSStreamEventHasBytesAvailable:
-
+            
             if ([receiver respondsToSelector: @selector(socket:didReceiveDataInStream:)])
             {
                 dispatch_async(self.callbackQueue, ^{
@@ -140,6 +140,11 @@ const char * kJRTSocketQueueName =  "com.kerrelinc.JRTSocket";
         case NSStreamEventNone:
             break;
         case NSStreamEventOpenCompleted:
+            // called when the connection is established
+            if ([receiver respondsToSelector:@selector(socketOpened:)])
+            {
+                [receiver socketOpened: self];
+            }
             break;
         case NSStreamEventHasSpaceAvailable:
             break;

@@ -113,6 +113,10 @@ didReceiveDataInStream:(NSInputStream *)inputStream
 {
     [self.videoStreamProcessor processBytesFromStream: inputStream];
 }
+-(void)socketOpened:(JRTSocket *)socket
+{
+    
+}
 -(void)socketClosed:(JRTSocket *)socket
 {
     _socket = nil;
