@@ -10,7 +10,7 @@ import UIKit
 
 protocol JRTCircleVibrantViewDelegate
 {
-    func circleVibrantView(didGetTapped: JRTCircleVibrantView)
+    func circleVibrantViewDidGetTapped(view : JRTCircleVibrantView)
 }
 
 class JRTCircleVibrantView: UIVisualEffectView
@@ -132,7 +132,7 @@ class JRTCircleVibrantView: UIVisualEffectView
         animation.toValue = toValue
         shapeLayer.add(animation, forKey: kAnimationKey)
         
-        delegate?.circleVibrantView(didGetTapped: self)
+        delegate?.circleVibrantViewDidGetTapped(view: self)
     }
     override var intrinsicContentSize: CGSize
     {

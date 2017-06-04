@@ -38,155 +38,74 @@ class LightSwitchesViewController: UIViewController
     }
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    var buttons: [UIButton] = []
+    var buttons: [JRTCircleVibrantView] = []
     private func setupUI()
     {
-        // button0
-        let button0 = UIButton(type: .system)
-        button0.addTarget(self,
-                          action: #selector(LightSwitchesViewController.lightButtonTapped(button:)),
-                          for: .touchUpInside)
+        let button0 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button0.translatesAutoresizingMaskIntoConstraints = false
-        button0.backgroundColor = UIColor.white
-        button0.setTitle("Switch0 - ?", for: .normal)
-        button0.layer.borderColor = button0.currentTitleColor.cgColor
-        button0.layer.borderWidth = 1.000 / UIScreen.main.scale
-        self.view.addSubview(button0)
-        
-        let button0Leading = NSLayoutConstraint(item: button0
-            , attribute: .leading,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .leading,
-              multiplier: 1,
-              constant: 10)
-        let button0Trailing = NSLayoutConstraint(item: button0
-            , attribute: .trailing,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .trailing,
-              multiplier: 1,
-              constant: -10)
-        let button0Top = NSLayoutConstraint(item: button0
-            , attribute: .top,
-              relatedBy: .equal,
-              toItem: self.topLayoutGuide,
-              attribute: .bottom,
-              multiplier: 1,
-              constant: 20)
         view.addSubview(button0)
-        view.addConstraints([button0Leading, button0Trailing, button0Top])
+        button0.delegate = self
+        button0.text = "?"
         
-        // button1
-        let button1 = UIButton(type: .system)
-        button1.addTarget(self,
-                          action: #selector(LightSwitchesViewController.lightButtonTapped(button:)),
-                          for: .touchUpInside)
+        let button1 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button1.translatesAutoresizingMaskIntoConstraints = false
-        button1.backgroundColor = UIColor.white
-        button1.setTitle("Switch1 - ?", for: .normal)
-        button1.layer.borderColor = button0.currentTitleColor.cgColor
-        button1.layer.borderWidth = 1.000 / UIScreen.main.scale
-        self.view.addSubview(button1)
-        
-        let button1Leading = NSLayoutConstraint(item: button1
-            , attribute: .leading,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .leading,
-              multiplier: 1,
-              constant: 10)
-        let button1Trailing = NSLayoutConstraint(item: button1
-            , attribute: .trailing,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .trailing,
-              multiplier: 1,
-              constant: -10)
-        let button1Top = NSLayoutConstraint(item: button1
-            , attribute: .top,
-              relatedBy: .equal,
-              toItem: button0,
-              attribute: .bottom,
-              multiplier: 1,
-              constant: 20)
         view.addSubview(button1)
-        view.addConstraints([button1Leading, button1Trailing, button1Top])
+        button1.delegate = self
+        button1.text = "?"
         
-        
-        // button2
-        let button2 = UIButton(type: .system)
-        button2.addTarget(self,
-                          action: #selector(LightSwitchesViewController.lightButtonTapped(button:)),
-                          for: .touchUpInside)
+        let button2 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button2.translatesAutoresizingMaskIntoConstraints = false
-        button2.backgroundColor = UIColor.white
-        button2.setTitle("Switch2 - ?", for: .normal)
-        button2 .layer.borderColor = button0.currentTitleColor.cgColor
-        button2.layer.borderWidth = 1.000 / UIScreen.main.scale
-        self.view.addSubview(button2)
-        
-        let button2Leading = NSLayoutConstraint(item: button2
-            , attribute: .leading,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .leading,
-              multiplier: 1,
-              constant: 10)
-        let button2Trailing = NSLayoutConstraint(item: button2
-            , attribute: .trailing,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .trailing,
-              multiplier: 1,
-              constant: -10)
-        let button2Top = NSLayoutConstraint(item: button2
-            , attribute: .top,
-              relatedBy: .equal,
-              toItem: button1,
-              attribute: .bottom,
-              multiplier: 1,
-              constant: 20)
         view.addSubview(button2)
-        view.addConstraints([button2Leading, button2Trailing, button2Top])
+        button2.delegate = self
+        button2.text = "?"
         
-        // button3
-        let button3 = UIButton(type: .system)
-        button3.addTarget(self,
-                          action: #selector(LightSwitchesViewController.lightButtonTapped(button:)),
-                          for: .touchUpInside)
+        let button3 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button3.translatesAutoresizingMaskIntoConstraints = false
-        button3.backgroundColor = UIColor.white
-        button3.setTitle("Switch3 - ?", for: .normal)
-        button3.layer.borderColor = button0.currentTitleColor.cgColor
-        button3.layer.borderWidth = 1.000 / UIScreen.main.scale
-        self.view.addSubview(button3)
-        
-        let button3Leading = NSLayoutConstraint(item: button3
-            , attribute: .leading,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .leading,
-              multiplier: 1,
-              constant: 10)
-        let button3Trailing = NSLayoutConstraint(item: button3
-            , attribute: .trailing,
-              relatedBy: .equal,
-              toItem: self.view!,
-              attribute: .trailing,
-              multiplier: 1,
-              constant: -10)
-        let button3Top = NSLayoutConstraint(item: button3
-            , attribute: .top,
-              relatedBy: .equal,
-              toItem: button2,
-              attribute: .bottom,
-              multiplier: 1,
-              constant: 20)
         view.addSubview(button3)
-        view.addConstraints([button3Leading, button3Trailing, button3Top])
+        button3.delegate = self
+        button3.text = "?"
         
         buttons = [button0, button1, button2, button3]
+        
+        let stackView = UIStackView(arrangedSubviews: [button0, button1, button2, button3])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        view.addSubview(stackView)
+        
+        let leading = NSLayoutConstraint(item: stackView,
+                                         attribute: .leading,
+                                         relatedBy: .equal,
+                                         toItem: view!,
+                                         attribute: .leading,
+                                         multiplier: 1.0,
+                                         constant: 0)
+        let trailing = NSLayoutConstraint(item: stackView,
+                                          attribute: .trailing,
+                                          relatedBy: .equal,
+                                          toItem: view!,
+                                          attribute: .trailing,
+                                          multiplier: 1.0,
+                                          constant: 0)
+        let top = NSLayoutConstraint(item: stackView,
+                                   attribute: .top,
+                                   relatedBy: .equal,
+                                   toItem: topLayoutGuide,
+                                   attribute: .bottom,
+                                   multiplier: 1.0,
+                                   constant: 20)
+        let bottom = NSLayoutConstraint(item: stackView,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: bottomLayoutGuide,
+                                        attribute: .top,
+                                        multiplier: 1.0,
+                                        constant: -20)
+        
+        view!.addConstraints([leading, trailing, top, bottom])
+        
+        
         
         let message = self.message
         if message.count > 0
@@ -225,21 +144,8 @@ class LightSwitchesViewController: UIViewController
 //        }, completion: <#T##((UIViewControllerTransitionCoordinatorContext) -> Void)?##((UIViewControllerTransitionCoordinatorContext) -> Void)?##(UIViewControllerTransitionCoordinatorContext) -> Void#>)
 //    }
     
-
     
-    func lightButtonTapped(button: UIButton)
-    {
-        if let index = buttons.index(of: button)
-        {
-            if index != NSNotFound
-            {
-                spinner.startAnimating()
-                toggleSwitch(atIndex: index)
-            }
-        }
-    }
-    
-    private func toggleSwitch(atIndex: Int)
+    fileprivate func toggleSwitch(atIndex: Int)
     {
         precondition(atIndex < 4, "There are only 4 switches, yet the index exceeds 4")
         
@@ -388,7 +294,9 @@ extension LightSwitchesViewController: JRTSocketReceiver
                 
                 // update the UI to reflect the switchStatus
                 let button = self.buttons[index]
-                button.setTitle(buttonTitle, for: .normal)
+                button.text = "\(index)"
+                let state: JRTCircleVibrantView.VisualState = switchStatus ? .highlighted : .normal
+                button.setState(state: state)
             }
             self.spinner.stopAnimating()
         }
@@ -416,5 +324,19 @@ extension LightSwitchesViewController: JRTSocketReceiver
         }
         self.message = message
         return message
+    }
+}
+extension LightSwitchesViewController: JRTCircleVibrantViewDelegate
+{
+    func circleVibrantViewDidGetTapped(view: JRTCircleVibrantView)
+    {
+        if let index = buttons.index(of: view)
+        {
+            if index != NSNotFound
+            {
+                spinner.startAnimating()
+                toggleSwitch(atIndex: index)
+            }
+        }
     }
 }
