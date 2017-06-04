@@ -199,6 +199,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nka-FA-q5c" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kGk-oP-oJk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -211,15 +212,15 @@
             </objects>
             <point key="canvasLocation" x="365.60000000000002" y="347.67616191904051"/>
         </scene>
-        <!--Item-->
+        <!--Light Switches-->
         <scene sceneID="Bfr-0X-XxA">
             <objects>
-                <viewController id="Mre-cg-VnS" customClass="LightSwitchesViewController" customModule="sPiView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Light Switches" id="Mre-cg-VnS" customClass="LightSwitchesViewController" customModule="sPiView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n6j-8c-OFg"/>
                         <viewControllerLayoutGuide type="bottom" id="lBR-2E-nGY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jxH-Zb-X73">
+                    <view key="view" contentMode="scaleToFill" id="jxH-Zb-X73" customClass="UIImageView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

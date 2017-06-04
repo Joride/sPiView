@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A2186FCD1BF9E56C000AF257 /* JRTDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = A2186FC91BF9E56C000AF257 /* JRTDebug.m */; };
 		A2186FCE1BF9E56C000AF257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2186FCA1BF9E56C000AF257 /* main.m */; };
+		A21910E11EE450CF00A83DA1 /* JRTCircleVibrantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21910E01EE450CF00A83DA1 /* JRTCircleVibrantView.swift */; };
 		A21DE3851A2B39330069BE45 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A21DE3841A2B39330069BE45 /* iTunesArtwork */; };
 		A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = A2733A231BF9E22100641F0E /* JRTH264VideoStreamProcessor.m */; };
 		A2733A291BF9E22100641F0E /* JRTH264VideoStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2733A251BF9E22100641F0E /* JRTH264VideoStreamController.m */; };
@@ -65,6 +66,7 @@
 		A2186FC91BF9E56C000AF257 /* JRTDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTDebug.m; sourceTree = "<group>"; };
 		A2186FCA1BF9E56C000AF257 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A2186FCB1BF9E56C000AF257 /* sPiView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sPiView-Prefix.pch"; sourceTree = "<group>"; };
+		A21910E01EE450CF00A83DA1 /* JRTCircleVibrantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JRTCircleVibrantView.swift; path = Views/JRTCircleVibrantView.swift; sourceTree = "<group>"; };
 		A21DE3841A2B39330069BE45 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = sPiView/resources/icons/iTunesArtwork; sourceTree = "<group>"; };
 		A2733A221BF9E22100641F0E /* JRTH264VideoStreamProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTH264VideoStreamProcessor.h; sourceTree = "<group>"; };
 		A2733A231BF9E22100641F0E /* JRTH264VideoStreamProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTH264VideoStreamProcessor.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		A2A08BDA1BFCF2AF00EBDFDA /* views */ = {
 			isa = PBXGroup;
 			children = (
+				A21910E01EE450CF00A83DA1 /* JRTCircleVibrantView.swift */,
 				A2A08BDB1BFCF2B700EBDFDA /* cells */,
 			);
 			name = views;
@@ -476,6 +479,7 @@
 				A2A08BD31BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m in Sources */,
 				A2C55B191EDA049600EFCA80 /* LightSwitchesViewController.swift in Sources */,
 				A2A08BD91BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m in Sources */,
+				A21910E11EE450CF00A83DA1 /* JRTCircleVibrantView.swift in Sources */,
 				A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -588,7 +592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -615,7 +619,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "$SRCROOT/sPiView/src/supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -645,7 +649,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "$SRCROOT/sPiView/src/supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerrelinc.spiview;
 				PRODUCT_NAME = "$(TARGET_NAME)";

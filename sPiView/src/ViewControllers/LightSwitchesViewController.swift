@@ -12,9 +12,19 @@ fileprivate let kPortNumber = 82
 
 class LightSwitchesViewController: UIViewController
 {
+    var imageView: UIImageView{
+        get {
+            assert(self.view is UIImageView, "Expecting self.view to be of type UIImaView")
+            return view as! UIImageView
+            
+        }
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        imageView.image = UIImage.launch()
+        
         setupUI()
         
         if nil == _socket
@@ -208,6 +218,14 @@ class LightSwitchesViewController: UIViewController
                                                 constant: 0)
         view.addConstraints([spinnerCenterY, spinnerCenterX])
     }
+    
+//    func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        coordinator.animate(alongsideTransition: { (<#UIViewControllerTransitionCoordinatorContext#>) in
+//            <#code#>
+//        }, completion: <#T##((UIViewControllerTransitionCoordinatorContext) -> Void)?##((UIViewControllerTransitionCoordinatorContext) -> Void)?##(UIViewControllerTransitionCoordinatorContext) -> Void#>)
+//    }
+    
+
     
     func lightButtonTapped(button: UIButton)
     {

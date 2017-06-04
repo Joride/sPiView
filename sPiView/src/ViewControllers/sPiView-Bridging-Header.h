@@ -4,3 +4,4 @@
 
 #import "JRTSocket.h"
 #import "UIColor+sPiView.h"
+#import "UIImage+LaunchImage.h"
