@@ -92,38 +92,73 @@ class LightSwitchesViewController: UIViewController
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalCentering
-        view.addSubview(stackView)
         
-        let leading = NSLayoutConstraint(item: stackView,
-                                         attribute: .leading,
-                                         relatedBy: .equal,
-                                         toItem: view!,
-                                         attribute: .leading,
-                                         multiplier: 1.0,
-                                         constant: 0)
-        let trailing = NSLayoutConstraint(item: stackView,
-                                          attribute: .trailing,
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        effectView.contentView.addSubview(stackView)
+        
+        view!.addSubview(effectView)
+        
+        let stackLeading = NSLayoutConstraint(item: stackView,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: effectView.contentView,
+                                              attribute: .leading,
+                                              multiplier: 1.0,
+                                              constant: 0)
+        let stackTrailing = NSLayoutConstraint(item: stackView,
+                                               attribute: .trailing,
+                                               relatedBy: .equal,
+                                               toItem: effectView.contentView,
+                                               attribute: .trailing,
+                                               multiplier: 1.0,
+                                               constant: 0)
+        let stackTop = NSLayoutConstraint(item: stackView,
+                                          attribute: .top,
                                           relatedBy: .equal,
-                                          toItem: view!,
-                                          attribute: .trailing,
+                                          toItem: effectView.contentView,
+                                          attribute: .top,
+                                          multiplier: 1.0,
+                                          constant: 20)
+        let stackBottom = NSLayoutConstraint(item: stackView,
+                                             attribute: .bottom,
+                                             relatedBy: .equal,
+                                             toItem: effectView.contentView,
+                                             attribute: .bottom,
+                                             multiplier: 1.0,
+                                             constant: -20)
+        
+        let effectLeading = NSLayoutConstraint(item: effectView,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: view!,
+                                              attribute: .leading,
+                                              multiplier: 1.0,
+                                              constant: 0)
+        let effectTrailing = NSLayoutConstraint(item: effectView,
+                                               attribute: .trailing,
+                                               relatedBy: .equal,
+                                               toItem: view!,
+                                               attribute: .trailing,
+                                               multiplier: 1.0,
+                                               constant: 0)
+        let effectTop = NSLayoutConstraint(item: effectView,
+                                          attribute: .top,
+                                          relatedBy: .equal,
+                                          toItem: topLayoutGuide,
+                                          attribute: .bottom,
                                           multiplier: 1.0,
                                           constant: 0)
-        let top = NSLayoutConstraint(item: stackView,
-                                   attribute: .top,
-                                   relatedBy: .equal,
-                                   toItem: topLayoutGuide,
-                                   attribute: .bottom,
-                                   multiplier: 1.0,
-                                   constant: 20)
-        let bottom = NSLayoutConstraint(item: stackView,
-                                        attribute: .bottom,
-                                        relatedBy: .equal,
-                                        toItem: bottomLayoutGuide,
-                                        attribute: .top,
-                                        multiplier: 1.0,
-                                        constant: -20)
+        let effectBottom = NSLayoutConstraint(item: effectView,
+                                             attribute: .bottom,
+                                             relatedBy: .equal,
+                                             toItem: bottomLayoutGuide,
+                                             attribute: .top,
+                                             multiplier: 1.0,
+                                             constant: -0)
         
-        view!.addConstraints([leading, trailing, top, bottom])
+        view!.addConstraints([stackLeading, stackTrailing, stackTop, stackBottom,
+                              effectLeading, effectTrailing, effectTop, effectBottom])
         
         
         
@@ -315,7 +350,8 @@ extension LightSwitchesViewController: JRTSocketReceiver
                 // update the UI to reflect the switchStatus
                 let button = self.buttons[index]
                 button.text = "\(index)"
-                let state: JRTCircleVibrantView.VisualState = switchStatus ? .highlighted : .normal
+                let state: JRTCircleVibrantView.VisualState = switchStatus ? .normal : .highlighted
+                
                 button.setState(state: state)
             }
             self.spinner.stopAnimating()

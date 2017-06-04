@@ -30,6 +30,7 @@ class JRTCircleVibrantView: UIVisualEffectView
     }
     func setState(state: VisualState)
     {
+        _state = state
         if shapeLayer.animation(forKey: kAnimationKey) != nil
         {
             shapeLayer.removeAnimation(forKey: kAnimationKey)
