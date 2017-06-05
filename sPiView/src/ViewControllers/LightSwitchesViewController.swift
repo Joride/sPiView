@@ -335,13 +335,16 @@ extension LightSwitchesViewController: JRTSocketReceiver
         }
         
         let message = parseReceivedDataIntoMesage(bytes: buffer)
-        decodeMessage(bytes: message)
+        if message.count > 0
+        {
+            decodeMessage(bytes: message)
+        }
     }
     
     func decodeMessage(bytes: [UInt8])
     {
         // there is only one possibility currently, only validate
-        assert(bytes.count == 1, "The Raspberry Pi is currently only expected to return message byte: kClientRequestStatusMessage")
+        assert(bytes.count == 1, "The Raspberry Pi is currently only expected to return message byte: kClientRequestStatusMessage, the response is now: \(bytes)")
         assert(bytes[0] & kClientRequestStatusMessage == kClientRequestStatusMessage, "The Rasberry Pi is currently expected to only return a single byte that indicates the status of four switches via a byte of type kClientRequestStatusMessage")
         
         DispatchQueue.main.async {
@@ -369,11 +372,13 @@ extension LightSwitchesViewController: JRTSocketReceiver
     {
         print("Data received: \(bytes)")
         var message = [UInt8]()
+        var messageStarted = false
         for aByte in bytes
         {
             if aByte == kBeginOfMessage
             {
                 message = []
+                messageStarted = true
             }
             else if aByte == kEndOfMessage
             {
@@ -381,7 +386,10 @@ extension LightSwitchesViewController: JRTSocketReceiver
             }
             else
             {
-                message.append(aByte)
+                if messageStarted
+                {
+                    message.append(aByte)
+                }
             }
         }
         self.message = message
