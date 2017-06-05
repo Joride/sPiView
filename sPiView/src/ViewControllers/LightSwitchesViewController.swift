@@ -100,11 +100,18 @@ class LightSwitchesViewController: UIViewController
         
         buttons = [button0, button1, button2, button3]
         
-        let stackView = UIStackView(arrangedSubviews: [button0, button1, button2, button3])
+        // spinner
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.color = UIColor.raspberryPiGreen()
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        
+        let stackView = UIStackView(arrangedSubviews: [button0, spinner, button1/*, button2, button3*/])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .equalCentering
+        stackView.distribution = .equalSpacing//.equalCentering
         
         let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         effectView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,48 +139,46 @@ class LightSwitchesViewController: UIViewController
                                       toItem: effectView.contentView,
                                       attribute: .top,
                                       multiplier: 1.0,
-                                      constant: 40)
+                                      constant: 150)
         stackBottom = NSLayoutConstraint(item: stackView,
                                          attribute: .bottom,
                                          relatedBy: .equal,
                                          toItem: effectView.contentView,
                                          attribute: .bottom,
                                          multiplier: 1.0,
-                                         constant: -40)
+                                         constant: -150)
         
         let effectLeading = NSLayoutConstraint(item: effectView,
                                                attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view!,
-                                              attribute: .leading,
-                                              multiplier: 1.0,
-                                              constant: 0)
-        let effectTrailing = NSLayoutConstraint(item: effectView,
-                                               attribute: .trailing,
                                                relatedBy: .equal,
                                                toItem: view!,
-                                               attribute: .trailing,
+                                               attribute: .leading,
                                                multiplier: 1.0,
                                                constant: 0)
+        let effectTrailing = NSLayoutConstraint(item: effectView,
+                                                attribute: .trailing,
+                                                relatedBy: .equal,
+                                                toItem: view!,
+                                                attribute: .trailing,
+                                                multiplier: 1.0,
+                                                constant: 0)
         let effectTop = NSLayoutConstraint(item: effectView,
-                                          attribute: .top,
-                                          relatedBy: .equal,
-                                          toItem: topLayoutGuide,
-                                          attribute: .bottom,
-                                          multiplier: 1.0,
-                                          constant: 0)
+                                           attribute: .top,
+                                           relatedBy: .equal,
+                                           toItem: topLayoutGuide,
+                                           attribute: .bottom,
+                                           multiplier: 1.0,
+                                           constant: 0)
         let effectBottom = NSLayoutConstraint(item: effectView,
-                                             attribute: .bottom,
-                                             relatedBy: .equal,
-                                             toItem: bottomLayoutGuide,
-                                             attribute: .top,
-                                             multiplier: 1.0,
-                                             constant: -0)
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: bottomLayoutGuide,
+                                              attribute: .top,
+                                              multiplier: 1.0,
+                                              constant: -0)
         
         view!.addConstraints([stackLeading, stackTrailing, stackTop!, stackBottom!,
                               effectLeading, effectTrailing, effectTop, effectBottom])
-        
-        
         
         let message = self.message
         if message.count > 0
@@ -181,29 +186,21 @@ class LightSwitchesViewController: UIViewController
             decodeMessage(bytes: message)
         }
         
-        // spinner
-        
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.color = UIColor.raspberryPiGreen()
-        spinner.hidesWhenStopped = true
-        spinner.startAnimating()
-        view.addSubview(spinner)
-        
-        let spinnerCenterY = NSLayoutConstraint(item: spinner,
-                                            attribute: .centerY,
-                                            relatedBy: .equal,
-                                            toItem: view,
-                                            attribute: .centerY,
-                                            multiplier: 1,
-                                            constant: 0)
-        let spinnerCenterX = NSLayoutConstraint(item: spinner,
-                                                attribute: .centerX,
-                                                relatedBy: .equal,
-                                                toItem: view,
-                                                attribute: .centerX,
-                                                multiplier: 1,
-                                                constant: 0)
-        view.addConstraints([spinnerCenterY, spinnerCenterX])
+//        let spinnerCenterY = NSLayoutConstraint(item: spinner,
+//                                            attribute: .centerY,
+//                                            relatedBy: .equal,
+//                                            toItem: view,
+//                                            attribute: .centerY,
+//                                            multiplier: 1,
+//                                            constant: 0)
+//        let spinnerCenterX = NSLayoutConstraint(item: spinner,
+//                                                attribute: .centerX,
+//                                                relatedBy: .equal,
+//                                                toItem: view,
+//                                                attribute: .centerX,
+//                                                multiplier: 1,
+//                                                constant: 0)
+//        view.addConstraints([spinnerCenterY, spinnerCenterX])
     }
     
     fileprivate func toggleSwitch(atIndex: Int)
@@ -354,7 +351,7 @@ extension LightSwitchesViewController: JRTSocketReceiver
                 
                 // update the UI to reflect the switchStatus
                 let button = self.buttons[index]
-                button.text = "\(index)"
+                button.text = "\(index + 1)" // + 1, because UI is read by humans
                 let state: JRTCircleVibrantView.VisualState = switchStatus ? .normal : .highlighted
                 
                 button.setState(state: state)

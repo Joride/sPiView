@@ -52,7 +52,7 @@ class JRTCircleVibrantView: UIVisualEffectView
     fileprivate let shapeLayer = CAShapeLayer()
     fileprivate let label = UILabel()
     let vibrancyView: UIVisualEffectView
-    private let lineWidth: CGFloat = 4.00 / UIScreen.main.scale
+    private let lineWidth: CGFloat = 6.00 / UIScreen.main.scale
     required init(blurEffect: UIBlurEffect)
     {
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
@@ -77,7 +77,7 @@ class JRTCircleVibrantView: UIVisualEffectView
         vibrancyView.contentView.layer.addSublayer(shapeLayer)
         
         clipsToBounds = true
-        layer.cornerRadius = 37.5000
+        layer.cornerRadius = intrinsicContentSize.width * 0.5000
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(JRTCircleVibrantView.labelTapped(recognizer:)))
         self.addGestureRecognizer(recognizer)
@@ -137,7 +137,7 @@ class JRTCircleVibrantView: UIVisualEffectView
     }
     override var intrinsicContentSize: CGSize
     {
-        return CGSize(width: 75, height: 75)
+        return CGSize(width: 100, height: 100)
     }
     
     
