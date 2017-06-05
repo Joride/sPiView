@@ -282,18 +282,13 @@ class LightSwitchesViewController: UIViewController
         return [kBeginOfMessage, switchCommand, kEndOfMessage]
     }
     
-    private func sendOnMessage()
+    
+    func sendRequestSWitchStatus()
     {
-        var bytes = messageToTurnOnSwitches(switchIndexes: [0])
-        socket.writeBytes(&bytes,
-                          length: bytes.count)
+        var bytes = [kBeginOfMessage, kClientRequestStatusMessage, kEndOfMessage]
+        socket.writeBytes(&bytes, length: bytes.count)
     }
-    private func sendOffMessage()
-    {
-        var bytes = messageToTurnOnSwitches(switchIndexes: [])
-        socket.writeBytes(&bytes,
-                          length: bytes.count)
-    }
+    
     var message: [UInt8] = [UInt8]()
 }
 
@@ -307,6 +302,7 @@ extension LightSwitchesViewController: JRTSocketReceiver
     func socketClosed(_ socket: JRTSocket)
     {
         _socket = nil
+        sendRequestSWitchStatus()
     }
     
     func socket(_ socket: JRTSocket,
