@@ -185,22 +185,6 @@ class LightSwitchesViewController: UIViewController
         {
             decodeMessage(bytes: message)
         }
-        
-//        let spinnerCenterY = NSLayoutConstraint(item: spinner,
-//                                            attribute: .centerY,
-//                                            relatedBy: .equal,
-//                                            toItem: view,
-//                                            attribute: .centerY,
-//                                            multiplier: 1,
-//                                            constant: 0)
-//        let spinnerCenterX = NSLayoutConstraint(item: spinner,
-//                                                attribute: .centerX,
-//                                                relatedBy: .equal,
-//                                                toItem: view,
-//                                                attribute: .centerX,
-//                                                multiplier: 1,
-//                                                constant: 0)
-//        view.addConstraints([spinnerCenterY, spinnerCenterX])
     }
     
     fileprivate func toggleSwitch(atIndex: Int)
@@ -293,7 +277,10 @@ extension LightSwitchesViewController: JRTSocketReceiver
 {
     func socketOpened(_ socket: JRTSocket)
     {
-        spinner.stopAnimating()
+        DispatchQueue.main.async
+        {
+            self.spinner.stopAnimating()
+        }
     }
     
     func socketClosed(_ socket: JRTSocket)
