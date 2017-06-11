@@ -80,7 +80,12 @@ class SwitchesController
     }
     fileprivate func updateSwitchesState(withReceivedMessage message: [UInt8])
     {
-        assert(message.count == 1, "Expecting messages of only 1 byte")
+        if message.count != 1
+        {
+            print("Unknown message received: \(message)")
+            return
+        }
+        
         let statusByte = message[0]
         
         var updatedSwitches: [SwitchState] = []

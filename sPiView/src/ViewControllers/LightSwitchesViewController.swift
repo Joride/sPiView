@@ -48,28 +48,28 @@ class LightSwitchesViewController: UIViewController
         button0.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button0)
         button0.delegate = self
-        button0.text = "1"
+        button0.text = "?"
         button0.isHidden = true
         
         let button1 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button1.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button1)
         button1.delegate = self
-        button1.text = "2"
+        button1.text = "?"
         button1.isHidden = true
         
         let button2 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button2.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button2)
         button2.delegate = self
-        button2.text = "3"
+        button2.text = "?"
         button2.isHidden = true
         
         let button3 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button3.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button3)
         button3.delegate = self
-        button3.text = "4"
+        button3.text = "?"
         button3.isHidden = true
         
         buttons = [button0, button1, button2, button3]
@@ -79,6 +79,10 @@ class LightSwitchesViewController: UIViewController
         label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(LightSwitchesViewController.connectionLabelWasTapped(tapGestureRecognizer:)))
+        label.addGestureRecognizer(tapGestureRecognizer)
+        label.isUserInteractionEnabled = true
         
         // spinner
         spinner.translatesAutoresizingMaskIntoConstraints = false
@@ -162,6 +166,33 @@ class LightSwitchesViewController: UIViewController
         
     }
     
+    func connectionLabelWasTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        if !switchesController.isConnectedToRemote
+        {
+            label.text = "Connecting..."
+            switchesController.connectToRemote(completion: { (succes: Bool) in
+                DispatchQueue.main.async {
+                    if succes
+                    {
+                        self.label.text = "Connected"
+                        for aButton in self.buttons
+                        {
+                            aButton.isHidden = false
+                        }
+                    }
+                    else
+                    {
+                        self.label.text = "Not Connected, tap to connect"
+                        for aButton in self.buttons
+                        {
+                            aButton.isHidden = true
+                        }
+                    }
+                }
+            })
+        }
+    }
     fileprivate func updateButton(button: JRTCircleVibrantView,
                               forState state: SwitchesController.SwitchState)
     {
@@ -236,16 +267,20 @@ extension LightSwitchesViewController: SwitchesControllerDelegate
     func switchesControllerDidGetDisconnected(controller: SwitchesController)
     {
         // update the UI to reflec the current state
-        updateUIForConnectedToRemote(isConnected: false)
+        DispatchQueue.main.async {
+            self.updateUIForConnectedToRemote(isConnected: false)
+        }
     }
     func switchesController(controller: SwitchesController,
                             didChangeSwitchesStates atIndexes: [Int])
     {
         // update the buttons to reflect the new state
-        for anIndex in atIndexes
-        {
-            updateButton(button: buttons[anIndex],
-                         forState: controller.switchesState[anIndex])
+        DispatchQueue.main.async {
+            for anIndex in atIndexes
+            {
+                self.updateButton(button: self.buttons[anIndex],
+                                  forState: controller.switchesState[anIndex])
+            }
         }
     }
 }
