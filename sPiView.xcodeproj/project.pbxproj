@@ -12,6 +12,8 @@
 		A21910E11EE450CF00A83DA1 /* JRTCircleVibrantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21910E01EE450CF00A83DA1 /* JRTCircleVibrantView.swift */; };
 		A21DE3851A2B39330069BE45 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A21DE3841A2B39330069BE45 /* iTunesArtwork */; };
 		A2585D981EE72C97004C0C6E /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2585D971EE72C97004C0C6E /* NetworkController.swift */; };
+		A2585D9A1EEC38CB004C0C6E /* LightSwitchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2585D991EEC38CB004C0C6E /* LightSwitchesViewController.swift */; };
+		A2585D9D1EED2899004C0C6E /* SwitchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2585D9C1EED2899004C0C6E /* SwitchesController.swift */; };
 		A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = A2733A231BF9E22100641F0E /* JRTH264VideoStreamProcessor.m */; };
 		A2733A291BF9E22100641F0E /* JRTH264VideoStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2733A251BF9E22100641F0E /* JRTH264VideoStreamController.m */; };
 		A2733A2A1BF9E22100641F0E /* NSData+NALUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2733A271BF9E22100641F0E /* NSData+NALUnit.m */; };
@@ -41,7 +43,6 @@
 		A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */; };
 		A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */; };
 		A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */; };
-		A2C55B191EDA049600EFCA80 /* LightSwitchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */; };
 		A2D4450E1A18AF16008F9060 /* sPiViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4450D1A18AF16008F9060 /* sPiViewTests.m */; };
 		A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4451B1A18B0DF008F9060 /* AppDelegate.m */; };
 		A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445261A18B0DF008F9060 /* JRTSocket.m */; };
@@ -70,6 +71,8 @@
 		A21910E01EE450CF00A83DA1 /* JRTCircleVibrantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JRTCircleVibrantView.swift; path = Views/JRTCircleVibrantView.swift; sourceTree = "<group>"; };
 		A21DE3841A2B39330069BE45 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = sPiView/resources/icons/iTunesArtwork; sourceTree = "<group>"; };
 		A2585D971EE72C97004C0C6E /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = sPiView/src/Networking/NetworkController.swift; sourceTree = SOURCE_ROOT; };
+		A2585D991EEC38CB004C0C6E /* LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightSwitchesViewController.swift; sourceTree = "<group>"; };
+		A2585D9C1EED2899004C0C6E /* SwitchesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchesController.swift; path = SwitchesControlling/SwitchesController.swift; sourceTree = "<group>"; };
 		A2733A221BF9E22100641F0E /* JRTH264VideoStreamProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTH264VideoStreamProcessor.h; sourceTree = "<group>"; };
 		A2733A231BF9E22100641F0E /* JRTH264VideoStreamProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTH264VideoStreamProcessor.m; sourceTree = "<group>"; };
 		A2733A241BF9E22100641F0E /* JRTH264VideoStreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTH264VideoStreamController.h; sourceTree = "<group>"; };
@@ -114,7 +117,7 @@
 		A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressHeaderView.m; path = Views/cells/JRTIPAddressHeaderView.m; sourceTree = "<group>"; };
 		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
 		A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sPiView-Bridging-Header.h"; sourceTree = "<group>"; };
-		A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightSwitchesViewController.swift; sourceTree = "<group>"; };
+		A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LightSwitchesViewController.swift; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D445071A18AF16008F9060 /* sPiViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sPiViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4450C1A18AF16008F9060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,6 +190,14 @@
 				A2A08BB01BFB2FB900EBDFDA /* launchImage-ipad-portrait@2x.png */,
 			);
 			name = LaunchImages;
+			sourceTree = "<group>";
+		};
+		A2585D9B1EED2872004C0C6E /* SwitchesControlling */ = {
+			isa = PBXGroup;
+			children = (
+				A2585D9C1EED2899004C0C6E /* SwitchesController.swift */,
+			);
+			name = SwitchesControlling;
 			sourceTree = "<group>";
 		};
 		A2733A211BF9E22100641F0E /* H264VideoProcessing */ = {
@@ -287,6 +298,7 @@
 		A2D445191A18B0DF008F9060 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A2585D9B1EED2872004C0C6E /* SwitchesControlling */,
 				A2A08BBD1BFB922A00EBDFDA /* IP-addresses */,
 				A2D445361A18B127008F9060 /* Main.storyboard */,
 				A2D4451A1A18B0DF008F9060 /* AppDelegate.h */,
@@ -328,7 +340,8 @@
 				A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */,
 				A2A08BD11BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.h */,
 				A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */,
-				A2C55B181EDA049600EFCA80 /* LightSwitchesViewController.swift */,
+				A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */,
+				A2585D991EEC38CB004C0C6E /* LightSwitchesViewController.swift */,
 				A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */,
 			);
 			path = ViewControllers;
@@ -467,6 +480,7 @@
 				A2A08BD61BFBCB3200EBDFDA /* NSManagedObjectContext+Persisting.m in Sources */,
 				A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */,
 				A2E508B61BFF247200DB4774 /* UIColor+sPiView.m in Sources */,
+				A2585D9A1EEC38CB004C0C6E /* LightSwitchesViewController.swift in Sources */,
 				A2A08BC01BFB925600EBDFDA /* IP-addresses.xcdatamodeld in Sources */,
 				A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */,
 				A2585D981EE72C97004C0C6E /* NetworkController.swift in Sources */,
@@ -474,6 +488,7 @@
 				A2A08BCD1BFB981500EBDFDA /* NSFileManager+ApplicationDirectories.m in Sources */,
 				A2A08BA41BFB2B0000EBDFDA /* UIImage+LaunchImage.m in Sources */,
 				A2733A291BF9E22100641F0E /* JRTH264VideoStreamController.m in Sources */,
+				A2585D9D1EED2899004C0C6E /* SwitchesController.swift in Sources */,
 				A2733A2A1BF9E22100641F0E /* NSData+NALUnit.m in Sources */,
 				A2186FCD1BF9E56C000AF257 /* JRTDebug.m in Sources */,
 				A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */,
@@ -481,7 +496,6 @@
 				A2A08BDE1BFCF2D600EBDFDA /* JRTIPAddressCollectionViewCell.m in Sources */,
 				A2186FCE1BF9E56C000AF257 /* main.m in Sources */,
 				A2A08BD31BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m in Sources */,
-				A2C55B191EDA049600EFCA80 /* LightSwitchesViewController.swift in Sources */,
 				A2A08BD91BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m in Sources */,
 				A21910E11EE450CF00A83DA1 /* JRTCircleVibrantView.swift in Sources */,
 				A2733A281BF9E22100641F0E /* JRTH264VideoStreamProcessor.m in Sources */,

@@ -55,12 +55,14 @@ class NetworkController: NSObject
         {
             // sendBytes was called before, but no bytes have been received yet
             // or we are currently not connected
+            print("Not sending bytes, a previous sendBytes call is not finished yet")
             completion(false, nil)
         }
         else
         {
             assert(socket != nil, "Programming error: the socket must not be nil is isConnected is true")
             // write the bytes into the socket
+            print("Sending bytes: \(bytes)")
             sendMessageCompletionHandler = completion
             var mutableBytes = bytes
             socket!.writeBytes(&mutableBytes, length: mutableBytes.count)
@@ -86,11 +88,12 @@ extension NetworkController: JRTSocketReceiver
 {
     func socketClosed(_ socket: JRTSocket)
     {
+        print("socketClosed")
         _isConnected = false
     }
     func socketOpened(_ socket: JRTSocket)
     {
-        
+        print("socketOpened")
         if let completion = openConnectionCompletionHandler
         {
             callDelegateForConnectionChange = false
@@ -131,6 +134,7 @@ extension NetworkController: JRTSocketReceiver
             }
         }
         
+        print("socketdidReceiveDataIninputStream: \(buffer)")
         if let completion = sendMessageCompletionHandler
         {
             sendMessageCompletionHandler = nil
