@@ -46,28 +46,24 @@ class LightSwitchesViewController: UIViewController
     {
         let button0 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button0.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button0)
         button0.delegate = self
         button0.text = "?"
         button0.isHidden = true
         
         let button1 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button1.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button1)
         button1.delegate = self
         button1.text = "?"
         button1.isHidden = true
         
         let button2 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button2.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button2)
         button2.delegate = self
         button2.text = "?"
         button2.isHidden = true
         
         let button3 = JRTCircleVibrantView(blurEffect: UIBlurEffect(style: .light))
         button3.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button3)
         button3.delegate = self
         button3.text = "?"
         button3.isHidden = true
