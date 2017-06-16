@@ -216,10 +216,13 @@ class LightSwitchesViewController: UIViewController
         {
         case .on:
             button.text = "ON"
+            button.setState(state: .highlighted, animated: true)
         case .off:
             button.text = "OFF"
+            button.setState(state: .normal, animated: true)
         case .unknown:
             button.text = "?"
+            button.setState(state: .normal, animated: true)
         }
     }
     

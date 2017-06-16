@@ -28,14 +28,21 @@ class JRTCircleVibrantView: UIVisualEffectView
             return _state
         }
     }
-    func setState(state: VisualState)
+    func setState(state: VisualState, animated: Bool)
     {
-        _state = state
-        if shapeLayer.animation(forKey: kAnimationKey) != nil
+        if animated
         {
-            shapeLayer.removeAnimation(forKey: kAnimationKey)
+            animateToState(newState: state)
         }
-        updateShapelayer()
+        else
+        {
+            _state = state
+            if shapeLayer.animation(forKey: kAnimationKey) != nil
+            {
+                shapeLayer.removeAnimation(forKey: kAnimationKey)
+            }
+            updateShapelayer()
+        }
     }
     var delegate: JRTCircleVibrantViewDelegate? = nil
     var text: String?{
@@ -112,27 +119,6 @@ class JRTCircleVibrantView: UIVisualEffectView
             updateShapelayer()
         }
         
-        let animation = CABasicAnimation(keyPath: "fillColor")
-        animation.duration = 0.60
-        animation.delegate = self
-        animation.isRemovedOnCompletion = false
-        animation.fillMode = "forwards"
-        
-        let toValue: CGColor?
-        if _state == .normal
-        {
-            toValue = UIColor.white.cgColor
-            _state = .highlighted
-        }
-        else
-        {
-            toValue = UIColor.clear.cgColor
-            _state = .normal
-        }
-        
-        animation.toValue = toValue
-        shapeLayer.add(animation, forKey: kAnimationKey)
-        
         delegate?.circleVibrantViewDidGetTapped(view: self)
     }
     override var intrinsicContentSize: CGSize
@@ -140,16 +126,45 @@ class JRTCircleVibrantView: UIVisualEffectView
         return CGSize(width: 100, height: 100)
     }
     
+    private func animateToState(newState: VisualState)
+    {
+        if state != newState
+        {
+            shapeLayer.removeAnimation(forKey: kAnimationKey)
+            
+            let animation = CABasicAnimation(keyPath: "fillColor")
+            animation.duration = 0.60
+            animation.delegate = self
+            animation.isRemovedOnCompletion = false
+            animation.fillMode = "forwards"
+            
+            let toValue: CGColor?
+            if newState == .normal
+            {
+                toValue = UIColor.white.cgColor
+                _state = .highlighted
+            }
+            else
+            {
+                toValue = UIColor.clear.cgColor
+                _state = .normal
+            }
+            
+            animation.toValue = toValue
+            shapeLayer.add(animation, forKey: kAnimationKey)
+            _state = newState
+        }
+    }
     
     func updateShapelayer()
     {
         if state == .normal
         {
-            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.fillColor = UIColor.white.cgColor
         }
         else
         {
-            shapeLayer.fillColor = UIColor.white.cgColor
+            shapeLayer.fillColor = UIColor.clear.cgColor
         }
     }
 }
