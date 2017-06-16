@@ -27,8 +27,11 @@ class NetworkController: NSObject
         }
     }
     
+    fileprivate let timerQueue = DispatchQueue(label: "NetworkController.timerqueue")
+                                           
     fileprivate var openConnectionCompletionHandler: ((Bool) -> Void)? = nil
-    func openConnection(completion: @escaping (Bool) -> Void)
+    func openConnection(withTimeout timeInterval: TimeInterval,
+                        completion: @escaping (Bool) -> Void)
     {
         if nil != openConnectionCompletionHandler
         {
@@ -37,15 +40,35 @@ class NetworkController: NSObject
         }
         if !isConnected
         {
-            openConnectionCompletionHandler = completion
-            socket = nil
-            let kPortNumber = 82
-            let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.NetworkControllerQueue")
-            socket = JRTSocket(host: "192.168.1.33",
-                               portNumber: NSNumber(integerLiteral: kPortNumber),
-                               receiver: self,
-                               callbackQueue: queue)
+            startSocket(withTimeout: timeInterval, completion: completion)
         }
+    }
+    
+    fileprivate var timoutTimerFired = false
+    fileprivate var timer: Timer? = nil
+    private func startSocket(withTimeout timeInterval: TimeInterval,
+                             completion: @escaping (Bool) -> Void)
+    {
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval,
+                                     repeats: false) { (timer: Timer) in
+                                        self.timerQueue.async {
+                                            self.timoutTimerFired = true
+                                            self.socket = nil
+                                            self.timer?.invalidate()
+                                            self.timer = nil
+                                            self.openConnectionCompletionHandler = nil
+                                            completion(false)
+                                        }
+        }
+        
+        openConnectionCompletionHandler = completion
+        socket = nil
+        let kPortNumber = 82
+        let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.NetworkControllerQueue")
+        socket = JRTSocket(host: "192.168.1.33",
+                           portNumber: NSNumber(integerLiteral: kPortNumber),
+                           receiver: self,
+                           callbackQueue: queue)
     }
     
     fileprivate var sendMessageCompletionHandler: ((Bool, [UInt8]) -> Void)? = nil
@@ -69,7 +92,7 @@ class NetworkController: NSObject
         }
     }
     
-    private var socket: JRTSocket? = nil
+    fileprivate var socket: JRTSocket? = nil
     fileprivate var callDelegateForConnectionChange = true
     fileprivate var _isConnected = false
     {
@@ -82,6 +105,11 @@ class NetworkController: NSObject
             }
         }
     }
+    
+    private func timeoutTimerFired(timer: Timer)
+    {
+        
+    }
 }
 
 extension NetworkController: JRTSocketReceiver
@@ -89,22 +117,39 @@ extension NetworkController: JRTSocketReceiver
     func socketClosed(_ socket: JRTSocket)
     {
         print("socketClosed")
-        _isConnected = false
+        self._isConnected = false
+        
     }
     func socketOpened(_ socket: JRTSocket)
     {
         print("socketOpened")
-        if let completion = openConnectionCompletionHandler
-        {
-            callDelegateForConnectionChange = false
-            _isConnected = true
-            callDelegateForConnectionChange = true
-            openConnectionCompletionHandler = nil
-            completion(true)
-        }
-        else
-        {
-            _isConnected = true
+        timerQueue.async {
+            if self.timoutTimerFired
+            {
+                self.timer?.invalidate()
+                self.timer = nil
+                socket.close()
+                self.socket = nil
+                if let completion = self.openConnectionCompletionHandler
+                {
+                    completion(false)
+                }
+            }
+            else
+            {
+                if let completion = self.openConnectionCompletionHandler
+                {
+                    self.callDelegateForConnectionChange = false
+                    self._isConnected = true
+                    self.callDelegateForConnectionChange = true
+                    self.openConnectionCompletionHandler = nil
+                    completion(true)
+                }
+                else
+                {
+                    self._isConnected = true
+                }
+            }
         }
     }
     func socket(_ socket: JRTSocket,

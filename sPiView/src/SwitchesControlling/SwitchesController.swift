@@ -100,7 +100,7 @@ class SwitchesController
     
     func connectToRemote(completion: @escaping (Bool) -> Void)
     {
-        networkController.openConnection { (succes: Bool) in
+        networkController.openConnection(withTimeout: 5) { (succes: Bool) in
             completion(succes)
         }
     }

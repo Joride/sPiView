@@ -187,8 +187,10 @@ class LightSwitchesViewController: UIViewController
         if !switchesController.isConnectedToRemote
         {
             label.text = "Connecting..."
+            spinner.startAnimating()
             switchesController.connectToRemote(completion: { (succes: Bool) in
                 DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
                     if succes
                     {
                         self.label.text = "Connected"
