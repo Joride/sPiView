@@ -49,15 +49,18 @@ class NetworkController: NSObject
     private func startSocket(withTimeout timeInterval: TimeInterval,
                              completion: @escaping (Bool) -> Void)
     {
+        self.timerQueue.sync {
+            self.timoutTimerFired = false
+        }
+        
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval,
                                      repeats: false) { (timer: Timer) in
                                         self.timerQueue.async {
-                                            self.timoutTimerFired = true
-                                            self.socket = nil
-                                            self.timer?.invalidate()
-                                            self.timer = nil
-                                            self.openConnectionCompletionHandler = nil
-                                            completion(false)
+                                            if !self.isConnected
+                                            {
+                                                self.timoutTimerFired = true
+                                                self.timerFiredOrConnectionFinished()
+                                            }
                                         }
         }
         
@@ -69,6 +72,32 @@ class NetworkController: NSObject
                            portNumber: NSNumber(integerLiteral: kPortNumber),
                            receiver: self,
                            callbackQueue: queue)
+    }
+    
+    fileprivate func timerFiredOrConnectionFinished()
+    {
+        if self.timoutTimerFired
+        {
+            self.socket = nil
+            self.timer?.invalidate()
+            self.timer = nil
+            if let completion = self.openConnectionCompletionHandler
+            {
+                completion(false)
+            }
+            self.openConnectionCompletionHandler = nil
+        }
+        else
+        {
+            if let completion = self.openConnectionCompletionHandler
+            {
+                self.callDelegateForConnectionChange = false
+                self._isConnected = true
+                self.callDelegateForConnectionChange = true
+                self.openConnectionCompletionHandler = nil
+                completion(true)
+            }
+        }
     }
     
     fileprivate var sendMessageCompletionHandler: ((Bool, [UInt8]) -> Void)? = nil
@@ -105,11 +134,6 @@ class NetworkController: NSObject
             }
         }
     }
-    
-    private func timeoutTimerFired(timer: Timer)
-    {
-        
-    }
 }
 
 extension NetworkController: JRTSocketReceiver
@@ -117,38 +141,26 @@ extension NetworkController: JRTSocketReceiver
     func socketClosed(_ socket: JRTSocket)
     {
         print("socketClosed")
-        self._isConnected = false
+        self.timerQueue.async {
+            self._isConnected = false
+        }
         
     }
     func socketOpened(_ socket: JRTSocket)
     {
         print("socketOpened")
-        timerQueue.async {
+        
+        self.timerQueue.async {
             if self.timoutTimerFired
             {
-                self.timer?.invalidate()
-                self.timer = nil
-                socket.close()
+                // too late
                 self.socket = nil
-                if let completion = self.openConnectionCompletionHandler
-                {
-                    completion(false)
-                }
             }
             else
             {
-                if let completion = self.openConnectionCompletionHandler
-                {
-                    self.callDelegateForConnectionChange = false
-                    self._isConnected = true
-                    self.callDelegateForConnectionChange = true
-                    self.openConnectionCompletionHandler = nil
-                    completion(true)
-                }
-                else
-                {
-                    self._isConnected = true
-                }
+                // in time
+                self._isConnected = true
+                self.timerFiredOrConnectionFinished()
             }
         }
     }
