@@ -43,6 +43,7 @@
 		A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */; };
 		A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */; };
 		A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */; };
+		A2A1C5A01EF51A3000D93F06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2A1C59F1EF51A3000D93F06 /* Launch Screen.storyboard */; };
 		A2D4450E1A18AF16008F9060 /* sPiViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4450D1A18AF16008F9060 /* sPiViewTests.m */; };
 		A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4451B1A18B0DF008F9060 /* AppDelegate.m */; };
 		A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445261A18B0DF008F9060 /* JRTSocket.m */; };
@@ -116,6 +117,7 @@
 		A2A08BE31BFDCB2200EBDFDA /* JRTIPAddressHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressHeaderView.h; path = Views/cells/JRTIPAddressHeaderView.h; sourceTree = "<group>"; };
 		A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressHeaderView.m; path = Views/cells/JRTIPAddressHeaderView.m; sourceTree = "<group>"; };
 		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
+		A2A1C59F1EF51A3000D93F06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sPiView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LightSwitchesViewController.swift; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,6 +352,7 @@
 		A2D445311A18B10F008F9060 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				A2A1C59F1EF51A3000D93F06 /* Launch Screen.storyboard */,
 				A21DE3861A2B7C2F0069BE45 /* Images */,
 				A2D445321A18B10F008F9060 /* icons-launchimages.xcassets */,
 			);
@@ -452,6 +455,7 @@
 				A2A08B9E1BFB2ADA00EBDFDA /* launchImage-retina4@2x.png in Resources */,
 				A2D445331A18B10F008F9060 /* icons-launchimages.xcassets in Resources */,
 				A2A08BB21BFB2FB900EBDFDA /* launchImage-ipad-landscape@2x.png in Resources */,
+				A2A1C5A01EF51A3000D93F06 /* Launch Screen.storyboard in Resources */,
 				A2A08BA61BFB2E3900EBDFDA /* launchImage@2x.png in Resources */,
 				A2A08BB11BFB2FB900EBDFDA /* launchImage-ipad-landscape.png in Resources */,
 				A2A08BBC1BFB889A00EBDFDA /* launchImage-736h-landscape@3x.png in Resources */,
