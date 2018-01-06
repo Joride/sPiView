@@ -63,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A202CD7E20002A6400ECE538 /* sPiView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sPiView.entitlements; sourceTree = "<group>"; };
 		A2186FC71BF9E56C000AF257 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2186FC81BF9E56C000AF257 /* JRTDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTDebug.h; sourceTree = "<group>"; };
 		A2186FC91BF9E56C000AF257 /* JRTDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTDebug.m; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 		A2D444F01A18AF16008F9060 /* sPiView */ = {
 			isa = PBXGroup;
 			children = (
+				A202CD7E20002A6400ECE538 /* sPiView.entitlements */,
 				A2D445191A18B0DF008F9060 /* src */,
 				A2186FC61BF9E56C000AF257 /* supporting files */,
 				A2D445311A18B10F008F9060 /* resources */,
@@ -408,6 +410,11 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 2C6KT7L4EZ;
 						LastSwiftMigration = 0830;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A2D445061A18AF16008F9060 = {
 						CreatedOnToolsVersion = 6.1;
@@ -630,6 +637,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = sPiView/sPiView.entitlements;
 				DEVELOPMENT_TEAM = 2C6KT7L4EZ;
 				GCC_PREFIX_HEADER = "$SRCROOT/sPiView/src/supporting files/sPiView-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -660,6 +668,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = sPiView/sPiView.entitlements;
 				DEVELOPMENT_TEAM = 2C6KT7L4EZ;
 				GCC_PREFIX_HEADER = "$SRCROOT/sPiView/src/supporting files/sPiView-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
