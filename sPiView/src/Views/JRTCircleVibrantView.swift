@@ -80,7 +80,7 @@ class JRTCircleVibrantView: UIVisualEffectView
         contentView.layer.addSublayer(shapeLayer)
         // the label should always stay as it is, 
         // so it is not added to the contentview
-        vibrancyView.addSubview(label)
+        vibrancyView.contentView.addSubview(label)
         vibrancyView.contentView.layer.addSublayer(shapeLayer)
         
         clipsToBounds = true
