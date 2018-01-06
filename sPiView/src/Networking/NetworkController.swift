@@ -140,7 +140,7 @@ extension NetworkController: JRTSocketReceiver
 {
     func socketClosed(_ socket: JRTSocket)
     {
-        print("socketClosed")
+//        print("socketClosed")
         self.timerQueue.async {
             self._isConnected = false
         }
@@ -148,7 +148,7 @@ extension NetworkController: JRTSocketReceiver
     }
     func socketOpened(_ socket: JRTSocket)
     {
-        print("socketOpened")
+//        print("socketOpened")
         
         self.timerQueue.async {
             if self.timoutTimerFired
@@ -191,7 +191,7 @@ extension NetworkController: JRTSocketReceiver
             }
         }
         
-        print("socketdidReceiveDataIninputStream: \(buffer)")
+//        print("socketdidReceiveDataIninputStream: \(buffer)")
         if let completion = sendMessageCompletionHandler
         {
             sendMessageCompletionHandler = nil
