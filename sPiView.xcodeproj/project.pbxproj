@@ -43,6 +43,7 @@
 		A2A08BE21BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE11BFCF33600EBDFDA /* JRTIPAddressCollectionViewCell.xib */; };
 		A2A08BE61BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */; };
 		A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */; };
+		A2B6442E20CD3CA7008865C5 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = A2B6442D20CD3CA7008865C5 /* Notes */; };
 		A2D4450E1A18AF16008F9060 /* sPiViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4450D1A18AF16008F9060 /* sPiViewTests.m */; };
 		A2D4452A1A18B0DF008F9060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D4451B1A18B0DF008F9060 /* AppDelegate.m */; };
 		A2D4452F1A18B0DF008F9060 /* JRTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D445261A18B0DF008F9060 /* JRTSocket.m */; };
@@ -117,6 +118,7 @@
 		A2A08BE31BFDCB2200EBDFDA /* JRTIPAddressHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRTIPAddressHeaderView.h; path = Views/cells/JRTIPAddressHeaderView.h; sourceTree = "<group>"; };
 		A2A08BE41BFDCB2200EBDFDA /* JRTIPAddressHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRTIPAddressHeaderView.m; path = Views/cells/JRTIPAddressHeaderView.m; sourceTree = "<group>"; };
 		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
+		A2B6442D20CD3CA7008865C5 /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sPiView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LightSwitchesViewController.swift; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 		A2D444E51A18AF16008F9060 = {
 			isa = PBXGroup;
 			children = (
+				A2B6442D20CD3CA7008865C5 /* Notes */,
 				A2D444F01A18AF16008F9060 /* sPiView */,
 				A2D4450A1A18AF16008F9060 /* sPiViewTests */,
 				A2D444EF1A18AF16008F9060 /* Products */,
@@ -453,6 +456,7 @@
 				A2A08BB81BFB875C00EBDFDA /* launchImage-retina4-landscape@2x.png in Resources */,
 				A21DE3851A2B39330069BE45 /* iTunesArtwork in Resources */,
 				A2A08BB41BFB2FB900EBDFDA /* launchImage-ipad-portrait@2x.png in Resources */,
+				A2B6442E20CD3CA7008865C5 /* Notes in Resources */,
 				A2A08BAB1BFB2F7A00EBDFDA /* launchImage-667h@2x.png in Resources */,
 				A2A08BBA1BFB87FD00EBDFDA /* launchImage-667h-landscape@2x.png in Resources */,
 				A2A08BE71BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib in Resources */,
