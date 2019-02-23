@@ -120,7 +120,6 @@
 		A2A08BE51BFDCB2200EBDFDA /* JRTIPAddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRTIPAddressHeaderView.xib; path = Views/cells/JRTIPAddressHeaderView.xib; sourceTree = "<group>"; };
 		A2B6442D20CD3CA7008865C5 /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sPiView-Bridging-Header.h"; sourceTree = "<group>"; };
-		A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LightSwitchesViewController.swift; sourceTree = "<group>"; };
 		A2D444EE1A18AF16008F9060 /* sPiView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sPiView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D445071A18AF16008F9060 /* sPiViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sPiViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4450C1A18AF16008F9060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -345,7 +344,6 @@
 				A2A08BD81BFCDEEA00EBDFDA /* JRTIPAddressesCollectionViewDataSource.m */,
 				A2A08BD11BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.h */,
 				A2A08BD21BFBBC9B00EBDFDA /* JRTEditIPAddressViewController.m */,
-				A2C55B181EDA049600EFCA80 /* _LightSwitchesViewController.swift */,
 				A2585D991EEC38CB004C0C6E /* LightSwitchesViewController.swift */,
 				A2C55B171EDA049600EFCA80 /* sPiView-Bridging-Header.h */,
 			);

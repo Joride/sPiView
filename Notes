@@ -1,0 +1,12 @@
+APNS cert handling:
+
+1. get a cert via the dev portal
+2. import into keychain access by doubleclicking it
+3. export the public part of the cert from keychain as .p12 file
+4. in terminal, create a .pem file from the p12 using this commmand:
+openssl pkcs12 -in /path/to/cert.p12 -out /path/to/cert.pem -nodes -clcerts
+
+
+
+iPhone 8 Jorrit / sPiView:
+63A3721CF6FE254EE6162DFA19120C2834E0038636ECC4175F1C45E4877210AC

@@ -68,7 +68,7 @@ class NetworkController: NSObject
         socket = nil
         let kPortNumber = 82
         let queue: DispatchQueue = DispatchQueue(label: "com.sPiView.NetworkControllerQueue")
-        socket = JRTSocket(host: "192.168.1.33",
+        socket = JRTSocket(host: "192.168.178.21", // this is the IP-address for the lightswitches 
                            portNumber: NSNumber(integerLiteral: kPortNumber),
                            receiver: self,
                            callbackQueue: queue)
