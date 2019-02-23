@@ -70,7 +70,7 @@ class JRTCircleVibrantView: UIVisualEffectView
         shapeLayer.lineWidth = lineWidth
         
         label.text = "1"
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1)
         label.textColor = UIColor.white
         label.textAlignment = .center
         
@@ -111,7 +111,7 @@ class JRTCircleVibrantView: UIVisualEffectView
     }
     
     fileprivate let kAnimationKey = "MyFillColorAnimation"
-    func labelTapped(recognizer: UITapGestureRecognizer)
+    @objc func labelTapped(recognizer: UITapGestureRecognizer)
     {
         if shapeLayer.animation(forKey: kAnimationKey) != nil
         {
@@ -136,7 +136,7 @@ class JRTCircleVibrantView: UIVisualEffectView
             animation.duration = 0.60
             animation.delegate = self
             animation.isRemovedOnCompletion = false
-            animation.fillMode = "forwards"
+            animation.fillMode = convertToCAMediaTimingFillMode("forwards")
             
             let toValue: CGColor?
             if newState == .normal
@@ -178,3 +178,8 @@ extension JRTCircleVibrantView: CAAnimationDelegate
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFillMode(_ input: String) -> CAMediaTimingFillMode {
+	return CAMediaTimingFillMode(rawValue: input)
+}

@@ -37,7 +37,7 @@ class LightSwitchesViewController: UIViewController
         }
     }
     fileprivate let switchesController = SwitchesController()
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    let spinner = UIActivityIndicatorView(style: .whiteLarge)
     var buttons: [JRTCircleVibrantView] = []
     var spinnerTop: NSLayoutConstraint? = nil
     var stackBottom: NSLayoutConstraint? = nil
@@ -74,7 +74,7 @@ class LightSwitchesViewController: UIViewController
         label.text = "Not connected"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(LightSwitchesViewController.connectionLabelWasTapped(tapGestureRecognizer:)))
         label.addGestureRecognizer(tapGestureRecognizer)
@@ -182,7 +182,7 @@ class LightSwitchesViewController: UIViewController
         
     }
     
-    func connectionLabelWasTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func connectionLabelWasTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         if !switchesController.isConnectedToRemote
         {

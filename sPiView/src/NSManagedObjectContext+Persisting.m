@@ -9,7 +9,7 @@
 #import "NSManagedObjectContext+Persisting.h"
 
 @implementation NSManagedObjectContext (Persisting)
-- (BOOL) persistError: (inout NSError **) error
+- (BOOL) persistError: (inout  NSError **) __strong error
 {
     BOOL __block success = NO;
 
