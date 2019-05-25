@@ -1,12 +1,12 @@
 APNS cert handling:
 
-1. get a cert via the dev portal
+1. get a cert via the dev portal (see: "Establishing a Certificate-Based Connection to APNs", https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns)
 2. import into keychain access by doubleclicking it
-3. export the public part of the cert from keychain as .p12 file
+3. select the certificate AND the private key and export that as a .p12 file
 4. in terminal, create a .pem file from the p12 using this commmand:
 openssl pkcs12 -in /path/to/cert.p12 -out /path/to/cert.pem -nodes -clcerts
-
-
+5. Update the the Python project with the proper device token and path the the .pem -file
+6. Run the Python file
 
 iPhone 8 Jorrit / sPiView:
 63A3721CF6FE254EE6162DFA19120C2834E0038636ECC4175F1C45E4877210AC
